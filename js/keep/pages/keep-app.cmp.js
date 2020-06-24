@@ -1,12 +1,9 @@
-// import noteTxt from '../cmps/note-txt.cmp.js'
-// import noteImg from '../cmps/note-img.cmp.js'
-// import noteTodos from '../cmps/note-todos.cmp.js'
-// import noteVideo from '../cmps/note-video.cmp.js'
+
 import noteList from '../cmps/note-list.cmp.js'
 
 import { keepService } from '../services/keep.service.js'
 
-
+//  <note-list :notes="notesToShow"> </note-list>
 export default {
     template: `
         <section class="keep-app">
@@ -18,8 +15,10 @@ export default {
                     <i class="fas fa-image"></i>&nbsp;
                     <i class="fab fa-youtube"></i>&nbsp;
                     <i class="fas fa-list-ul"></i>
-                </div>
-                <note-list :notes="notesToShow"> </note-list>           
+                </div>         
+                <div v-for="(note, idx) in notesToShow"></div>
+                    <component :is="note.type" :info="note.info"></component>
+                </div>        
             </div>
         </section>
     `,
@@ -50,5 +49,3 @@ export default {
       }
 };
 
-
-//<book-list></book-list>
