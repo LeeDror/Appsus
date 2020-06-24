@@ -15,7 +15,7 @@ const myRoutes = [
         component: aboutUs
     },
     {
-        path: '/note',
+        path: '/keep',
         component: keepApp
     },
     {

@@ -2,9 +2,12 @@
 @import './layout.css';
 @import './base.css';
 
-/* CPMS */
+/* APPS */
 
-/* @import './cmps/book-list.css';
+ @import './apps/keep/keep-main.css';
+ @import './apps/books/books-main.css';
+ @import './apps/mail/mail-main.css';
+ /*
 @import './cmps/book-preview.css';
 @import './cmps/book-filter.css';
 @import './cmps/book-details.css';

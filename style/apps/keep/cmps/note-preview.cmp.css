@@ -1,0 +1,10 @@
+.note-preview {
+    border: 1px solid black;
+    padding: 1rem;
+    /* max-width: 20rem; */
+    width: 240px;
+}
+
+.note-preview img {
+    width: 100%;
+}

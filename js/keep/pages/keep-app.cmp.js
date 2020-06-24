@@ -2,52 +2,53 @@
 // import noteImg from '../cmps/note-img.cmp.js'
 // import noteTodos from '../cmps/note-todos.cmp.js'
 // import noteVideo from '../cmps/note-video.cmp.js'
+import noteList from '../cmps/note-list.cmp.js'
 
 import { keepService } from '../services/keep.service.js'
 
 
 export default {
     template: `
-        <section v-if="survey">
-            <h2 :style="{color: survey.color}">{{survey.title}}</h2>
-            <input v-model="survey.color" />
-            <form @submit.prevent="save">
-                <div v-for="(cmp, idx) in survey.cmps">
-                    <component :is="cmp.type"  :info="cmp.info" @setVal="setAns($event, idx)"></component>
+        <section class="keep-app">
+            <input class="note-search" type="text" placeholder="Search in title" v-model="filter">
+            <div class="keep-content">
+                <div class="new-note">    
+                    <input type="text" placeholder="Take a note...">                    
+                    <i class="fas fa-font"></i>&nbsp;
+                    <i class="fas fa-image"></i>&nbsp;
+                    <i class="fab fa-youtube"></i>&nbsp;
+                    <i class="fas fa-list-ul"></i>
                 </div>
-                <button>Save</button>
-            </form>
-            <pre>{{answers}}</pre>
+                <note-list :notes="notesToShow"> </note-list>           
+            </div>
         </section>
     `,
     data() {
         return {
-            notes: null,
-            answers: []
+            notes: [],
+            filter: null
         }
     },
     created() {
+        console.log('keep-app');  
         keepService.getNotes()
             .then(notes => {
-                this.notes = notes
-            })
-
+                return this.notes = notes});
     },
-    methods: {
-        setAns(ans, idx) {
-            console.log('Setting the answer: ', ans, 'idx:', idx);
-            // this.answers[idx] = ans
-            this.answers.splice(idx, 1, ans)
-
-        },
-        save() {
-            console.log('Saving..');
-        }
+    computed: {
+        notesToShow() {
+        const filter = this.filter;
+        if (!filter) return this.notes;
+        let filteredNotes = this.notes.filter((note) => {
+            return note.info.title.toLowerCase().includes(filter.toLowerCase()) 
+        });
+        return filteredNotes;
+      }
     },
     components: {
-        // noteTxt,
-        // noteImg,
-        // noteTodos,
-        // noteVideo
-    }
+        noteList
+      }
 };
+
+
+//<book-list></book-list>
