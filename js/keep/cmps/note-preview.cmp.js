@@ -1,3 +1,5 @@
+
+// לא בשימוש
 export default {
   props: ['note'],
   template: `

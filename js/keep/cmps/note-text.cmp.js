@@ -1,8 +1,9 @@
 export default {
-    props: ['info'],
-    template: `
+  props: ['info'],
+  template: `
     <section>
-        {{info.txt}}
+        {{info.title}}
+        {{info.text}}
     </section>
     `
-}
+};
