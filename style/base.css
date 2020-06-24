@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+input {
+    outline: none;
+}
+
+.router-link-exact-active {
+    color: lightgreen
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+
+button {
+    background-color: white;
+    outline: none;
+    border-radius: 5px;
+}

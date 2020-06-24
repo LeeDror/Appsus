@@ -1,0 +1,19 @@
+.app-header {
+    height: 10vh;
+    background-color: rgba(146, 29, 101, 0.753);
+    color: white;
+    padding-bottom: 1rem;
+    padding: 0 2rem;
+}
+
+main {
+    min-height: 80vh;
+    background-color: rgb(233, 231, 231);
+    padding: 1rem 0;   
+}
+
+.app-footer {
+    min-height: 10vh;
+    background-color: rgba(146, 29, 101, 0.753);
+}
+
