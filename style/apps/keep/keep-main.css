@@ -1,18 +1,2 @@
-@import './helpers.css';
-@import './layout.css';
-@import './base.css';
-
-/* CPMS */
-
-@import './cmps/book-list.css';
-@import './cmps/book-preview.css';
-@import './cmps/book-filter.css';
-@import './cmps/book-details.css';
-@import './cmps/review-add.css';
-@import './cmps/user-msg.css';
-@import './cmps/book-add.css';
-
-
-
 
 
