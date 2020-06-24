@@ -1,91 +1,104 @@
-"use strict";
-import { Utils } from "./utils.service.js";
 
-var gBooks = (() => {
-    var books = Utils.loadFromStorage('books');
-    if (!books) {
-        books = _createDefaultBooks();
-        Utils.storeToStorage('books', books);
+import { utils } from "./utils.service.js";
+
+var gMsgs = (() => {
+    var msgs = utils.loadFromStorage('msgs');
+    if (!msgs) {
+        msgs = _createMsgs();
+        utils.storeToStorage('msgs', msgs);
     }
-    return books;
+    return msgs;
 })();
 
-export const bookService = {
-    getBooks,
-    getBookById,
-    addReview,
+var gSentMails = (() => {
+    var sentsMails = utils.loadFromStorage('sentMsgs');
+    if (!sentsMails) {
+        sentsMails = [];
+        utils.storeToStorage('sentMsgs', sentsMails);
+    }
+    return sentsMails;
+})();
+
+export const mailService = {
+    getMsgs,
+    getMsgById,
+    addSentMail,
     removeReview
 };
 
-function getBooks() {
-    return Promise.resolve(gBooks);
+function getMsgs() {
+    // console.log(gMsgs)
+    return (gMsgs)
+    // return Promise.resolve(gMsgs);
+
 }
 
+//todo: delete msg
 function removeReview(bookId, reviewIdx) {
     let currBook = gBooks.find((book) => book.id === bookId)
     currBook.reviews.splice(reviewIdx, 1);
-    Utils.storeToStorage('books', gBooks);
+    Utils.storeToStorage('msgs', gBooks);
 }
 
-function getBookById(bookId) {
-    const book = gBooks.find(book => book.id === bookId)
-    return Promise.resolve(book)
+function getMsgById(id) {
+    const msg = gMsgs.find(msg => msg.id === id)
+    return Promise.resolve(msg)
 }
 
-function addReview(bookId, review) {
-    const book = gBooks.find(book => book.id === bookId);
-    if (!book.reviews) book.reviews = [];
-    book.reviews.unshift(review);
-    Utils.storeToStorage('books', gBooks);
+//todo: add msg
+function addSentMail(formMail) {
+    var newMail = {
+        id: utils.getRandomId,
+        to: formMail.to,
+        cc: formMail.cc,
+        subject: formMail.subject,
+        text: formMail.text,
+        styles:{},
+        sentAt: formMail.sentAt
+
+    }
+    gSentMails.unshift(newMail);
+    utils.storeToStorage('sentMsgs', gSentMails);
 }
 
-{{msgItem.to}}
-{{msgItem.cc}}
-{{msgItem.text}}
-{{msgItem.styles.fontFam}}
-{{msgItem.styles.fontSize}}
-{{msgItem.styles.txtColor}}
-{{msgItem.styles.bgColor}}
-{{msgItem.sentAt}}
 
-
-function _createMails() {
+function _createMsgs() {
 
     return [{
-            id: "OXeMG8wNskc",
-            to: "da da",
-            cc: "du du",
-            title: "titel 1",
-            text: "ma nishma ? lama ? ha ha ha",
-            styles: {fontFam:"arial",fontSize:"12",txtColor:"blue",bgColor:"white"},
-            sentAt:""
-        },
-        {
-            id: "11111111",
-            to: "stam mishehu",
-            cc: "",
-            title: "title 2",
-            text: "stam text kolshehu",
-            styles: {fontFam:"curier",fontSize:"14",txtColor:"black",bgColor:"lightblue"},
-            sentAt:""
-        },
-        {
-            id: "989898989",
-            to: "da da",
-            cc: "du du",
-            title: "titel 1",
-            text: "ma nishma ? lama ? ha ha ha",
-            styles: {fontFam:"arial",fontSize:"12",txtColor:"blue",bgColor:"white"},
-            sentAt:""
-        },
-        {
-            id: "stamstam",
-            to: "da da",
-            cc: "du du",
-            title: "titel 1",
-            text: "ma nishma ? lama ? ha ha ha",
-            styles: {fontFam:"arial",fontSize:"12",txtColor:"blue",bgColor:"white"},
-            sentAt:""
-        }]
-  
+        id: "OXeMG8wNskc",
+        from: "da da",
+        cc: "du du",
+        subject: "subject 1",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: ""
+    },
+    {
+        id: "11111111",
+        from: "stam mishehu",
+        cc: "",
+        subject: "subject 2",
+        text: "stam text kolshehu",
+        styles: { fontFam: "curier", fontSize: "14", txtColor: "black", bgColor: "lightblue" },
+        recivedAt: ""
+    },
+    {
+        id: "989898989",
+        from: "shaaa",
+        cc: "miyau",
+        subject: "subject 3",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: ""
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "subject 4",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: ""
+    }]
+
 }

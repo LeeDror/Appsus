@@ -1,19 +1,23 @@
+// import mailContent from './mail-content.cmp.js';
+
 export default {
     props: ['msgItem'],
     template: `
           <li class="mail-item">
-              <amil-content class = "modal-content" @close="selectBook" v-if="selectedBook" :book="selectedBook"/>             
-              {{msgItem.to}}
-              {{msgItem.cc}}
-              {{msgItem.text}}
-              {{msgItem.styles.fontFam}}
-              {{msgItem.styles.fontSize}}
-              {{msgItem.styles.txtColor}}
-              {{msgItem.styles.bgColor}}
-              {{msgItem.sentAt}}
+          {{msgItem.from}}
+          {{msgItem.subject}}
+          {{msgItem.recivedAt}}
+    
           </li>
       `,
       methods: {
 
     },
+    components: {
+      // mailContent
+    },
   };
+
+  // <book-details class = "modal-content" @close="selectBook" v-if="selectedBook" :book="selectedBook"/>
+  //<mail-content class = "modal-content"/>   
+  // <mail-content class = "modal-content" @close="selectBook" v-if="selectedBook" :book="selectedBook"/>   
