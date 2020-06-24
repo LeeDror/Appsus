@@ -1,5 +1,5 @@
 
-import { utils } from "./utils.service.js";
+import { utils } from "../services/utils.service.js";
 
 var gMsgs = (() => {
     var msgs = utils.loadFromStorage('msgs');
