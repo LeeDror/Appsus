@@ -1,7 +1,7 @@
-import noteTxt from '../cmps/note-txt.cmp.js'
-import noteImg from '../cmps/note-img.cmp.js'
-import noteTodos from '../cmps/note-todos.cmp.js'
-import noteVideo from '../cmps/note-video.cmp.js'
+// import noteTxt from '../cmps/note-txt.cmp.js'
+// import noteImg from '../cmps/note-img.cmp.js'
+// import noteTodos from '../cmps/note-todos.cmp.js'
+// import noteVideo from '../cmps/note-video.cmp.js'
 
 import { keepService } from '../services/keep.service.js'
 
@@ -45,9 +45,9 @@ export default {
         }
     },
     components: {
-        noteTxt,
-        noteImg,
-        noteTodos,
-        noteVideo
+        // noteTxt,
+        // noteImg,
+        // noteTodos,
+        // noteVideo
     }
 };

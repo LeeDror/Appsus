@@ -1,7 +1,7 @@
 
 import {myRouter} from './routes.js'
 
-import bookApp from './pages/book-app.cmp.js';
+// import appsusApp from './pages/appsus-app.cmp.js';
 import appHeader from './pages/app-header.cmp.js';
 
 new Vue({
@@ -19,7 +19,7 @@ new Vue({
         </div>
     `,
   components: {
-    bookApp,
+    // appsusApp,
     appHeader
   }
 })
