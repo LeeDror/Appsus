@@ -2,8 +2,9 @@ export default {
   props: ['info'],
   template: `
     <section>
-        {{info.title}}
-        {{info.text}}
+        <input type="text" v-model="info.title"/>
+        <input type="text" v-model="info.text"/>
     </section>
     `
 };
+

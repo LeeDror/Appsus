@@ -8,3 +8,16 @@
 .note-list > * {
     break-inside: avoid-column;
 }
+
+.note-list input {
+    background-color: rgb(233, 231, 231);
+    border: none;
+}
+
+.note-list input:focus {
+    background-color: white;
+}
+
+.done {
+    text-decoration: line-through;
+}
