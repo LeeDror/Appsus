@@ -36,9 +36,8 @@ export default {
       let filteredNotes = this.notes.filter((note) => {
         return note.info.title.toLowerCase().includes(filter.toLowerCase());
       });
-      return filteredNotes.sort((a, b) => a.isPinned - b.isPinned);
-    },
-  },
+      return filteredNotes.sort((a, b) => (a.isPinned  === b.isPinned)?  0 : a.isPinned? -1 : 1);
+    }},
   methods: {
     renderNotes(event) {
         keepService.getNotes().then((notes) => 
@@ -49,4 +48,4 @@ export default {
     noteList,
     noteAdd
   },
-};
+}

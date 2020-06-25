@@ -1,10 +1,15 @@
 export default {
-  props: ['info'],
+  props: ['note'],
   template: `
     <section>
-        <input type="text" v-model="info.title"/>
-        <input type="text" v-model="info.text"/>
+        <input type="text" v-model="note.info.title" @blur="reportVal"/>
+        <input type="text" v-model="note.info.text" @blur="reportVal"/>
     </section>
-    `
+    `,
+    methods: {
+      reportVal() {
+        this.$emit('setVal', this.note)
+      }
+    }
 };
 

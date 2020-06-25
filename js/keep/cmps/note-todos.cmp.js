@@ -1,23 +1,24 @@
 export default {
-  props: ['info'],
+  props: ['note'],
   template: `
     <section>
-      <input type="text" v-model="info.title"/>
-        <ul v-for="todo in info.todos" @blur="reportVal">
-          <li :class="{done:todo.doneAt}"><input type="text" v-model="todo.text"/></li>
+        <ul v-for="todo in note.info.todos">
+          <li><input :class="{done:todo.doneAt}" type="text" v-model="todo.text" @blur="reportVal"/></li>
+          <input type="checkbox" />
         </ul>
     </section>
     `,
-    data() {
-      return {
-        val: '',
-      }
-    },
     methods: {
       reportVal() {
-        this.$emit('setVal', this.val)
+        this.$emit('setVal', this.note)
       }
+    },
+    todoDone() {
+      if (this.todo.doneAt) this.todo.doneAt=null;
+      this.todo.doneAt = date.now();
     }
 };
 
+
+// @click="todoDone"
 

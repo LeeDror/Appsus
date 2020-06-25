@@ -1,16 +1,23 @@
 export default {
-    props: ['info'],
+    props: ['note'],
     template: `
     <section>
-        <input type="text" v-model="info.title"/>
-        <input type="text" v-model="info.text"/>
-        {{info.url}}
+        {{note.info.url}}
 
         <video>
-            <source src="info.url" type="video/mp4">
+            <source src="note.info.url" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </section>
-    `
+    `,
+    methods: {
+      reportVal() {
+        this.$emit('setVal', this.note)
+      }
+    },
+    created() {
+      console.log(this.note);
+      
+    }
 }
 

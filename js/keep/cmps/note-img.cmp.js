@@ -1,11 +1,14 @@
 export default {
-    props: ['info'],
+    props: ['note'],
     template: `
     <section>
-        <input type="text" v-model="info.title"/>
-        <input type="text" v-model="info.text"/>
-        <img :src="info.url"/>
+        <img :src="note.info.url"/>
     </section>
-    `   
+    `,
+    methods: {
+      reportVal() {
+        this.$emit('setVal', this.note)
+      }
+    }
 }
 

@@ -10,14 +10,19 @@
 }
 
 .note-list input {
-    background-color: rgb(233, 231, 231);
+    background-color: transparent; 
     border: none;
 }
 
 .note-list input:focus {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .done {
     text-decoration: line-through;
+}
+
+.pined {
+    color: white;
+    background-color: black;
 }
