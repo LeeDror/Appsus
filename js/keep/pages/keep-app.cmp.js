@@ -1,12 +1,6 @@
-//  <note-list :notes="notesToShow"> </note-list>
+
 import noteList from "../cmps/note-list.cmp.js";
 import noteAdd from "../cmps/note-add.cmp.js";
-// import noteEdit from "../cmps/note-edit.cmp.js";
-// import noteText from '../cmps/note-text.cmp.js'
-// import noteImg from '../cmps/note-img.cmp.js'
-// import noteTodos from '../cmps/note-todos.cmp.js'
-// import noteVideo from '../cmps/note-video.cmp.js'
-//   // <router-link to="/edit
 import { keepService } from "../services/keep.service.js";
 
 export default {
@@ -36,12 +30,16 @@ export default {
       let filteredNotes = this.notes.filter((note) => {
         return note.info.title.toLowerCase().includes(filter.toLowerCase());
       });
-      return filteredNotes.sort((a, b) => (a.isPinned  === b.isPinned)?  0 : a.isPinned? -1 : 1);
-    }},
+      return filteredNotes.sort(function(x, y) {return (x.isPinned === y.isPinned)? 0 : x.isPinned? -1 : 1;})
+  }},
   methods: {
-    renderNotes(event) {
-        keepService.getNotes().then((notes) => 
-            this.notes = notes)
+    renderNotes() {
+        keepService.getNotes().then((notes) => {
+            //  this.notesToShow();
+            //  console.log(notes);
+             
+            return this.notes = notes
+        })
     }
   },
   components: {

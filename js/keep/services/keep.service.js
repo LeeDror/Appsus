@@ -25,10 +25,9 @@ function addNote(type, content) {
   };
   console.log(type);
 
-  if ((type = "noteText")) newNote.info.title = content;
-  else if ((type = "noteImg") || (type = "noteVideo"))
-    newNote.info.url = content;
-  else if ((type = "noteTodos")) newNote.info.todos = content.split(",");
+  if (type = "noteTodos") newNote.info.todos = content.split(",");
+  else if ((type = "noteImg") || (type = "noteVideo")) newNote.info.url = content;
+  else if (type = "noteText") newNote.info.title = content;
 
   gNotes.unshift(newNote);
   utils.storeToStorage(NOTE_KEY, gNotes);

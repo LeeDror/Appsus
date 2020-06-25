@@ -4,7 +4,7 @@ import noteImg from '../cmps/note-img.cmp.js';
 import noteTodos from '../cmps/note-todos.cmp.js';
 import noteVideo from '../cmps/note-video.cmp.js';
 import color from '../cmps/color.cmp.js';
-
+// <input type="color" v-model="note.style.backgroundColor" id="bgColor" @click.stop>
 import { keepService } from "../services/keep.service.js";
 
 export default {
@@ -13,14 +13,17 @@ export default {
         <section class="note-list">
             <div class="note-preview" v-for="(note, idx) in notes" :style="note.style">
                 <component :is="note.type" :note="note" @setVal="setNote($event, idx)"></component>
-                <input type="color" v-model="note.style.backgroundColor" id="bgColor" @click.stop>
-                <span :class="{pined: note.isPined}" @click="note.isPined=!note.isPined"><i class="fas fa-thumbtack" ></i></span>
+                <i class="fas fa-palette" @click="showColor=!showColor"></i>
+                <color v-if="showColor" :note="note" @setVal="setNote($event, idx)"> </color>      
+                <i :class="{unpinned: !note.isPinned}" @click.stop="note.isPinned=!note.isPinned ,setNote(note)" class="fas fa-thumbtack" ></i>
+                </button>
             </div>
         </section>
     `,
   data() {
     return {
-      editNotes: []
+      editNotes: [],
+      showColor: false
     }
   },
   created() {
@@ -30,7 +33,7 @@ export default {
   methods: {
     setNote (note) {
       keepService.saveEditNote(note)
-        .then(notes => this.editNotes = notes)
+        .then(notes => this.editNotes = notes)        
     }
   },
   components: {

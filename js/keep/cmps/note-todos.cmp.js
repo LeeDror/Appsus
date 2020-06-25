@@ -2,23 +2,23 @@ export default {
   props: ['note'],
   template: `
     <section>
-        <ul v-for="todo in note.info.todos">
-          <li><input :class="{done:todo.doneAt}" type="text" v-model="todo.text" @blur="reportVal"/></li>
-          <input type="checkbox" />
+        <ul v-for="(todo,idx) in note.info.todos" class="clean-list">
+          <li><input :class="{done:todo.doneAt}" type="text" v-model="todo.text" @blur="reportVal"/>
+          <input type="checkbox" @click="todoDone(todo)" v-model="todo.doneAt"/>
+          </li>
         </ul>
     </section>
     `,
     methods: {
       reportVal() {
+        console.log(this.note.info.todos);
         this.$emit('setVal', this.note)
-      }
-    },
-    todoDone() {
-      if (this.todo.doneAt) this.todo.doneAt=null;
-      this.todo.doneAt = date.now();
+        
+      },
+    todoDone(todo) {
+      if (todo.doneAt>0) todo.doneAt=null;
+      else todo.doneAt = Date.now();
+      this.reportVal();
     }
+  }
 };
-
-
-// @click="todoDone"
-

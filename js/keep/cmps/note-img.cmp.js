@@ -4,11 +4,6 @@ export default {
     <section>
         <img :src="note.info.url"/>
     </section>
-    `,
-    methods: {
-      reportVal() {
-        this.$emit('setVal', this.note)
-      }
-    }
+    `
 }
 

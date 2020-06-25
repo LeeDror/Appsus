@@ -6,7 +6,8 @@ export default {
     <section>
         <div class="keep-content">
             <div class="new-note">    
-                <input type="text" :placeholder="placeholder" @click="('noteText')" v-model="content"> 
+                <input type="text" v-if="noteType" placeholder="Title" @click="setType('noteText')" v-model="content.title"> 
+                <input type="text" :placeholder="placeholder" @click="setType('noteText')" v-model="content.text"> 
                 <i class="fas fa-font" @click="setType('noteText')"></i>&nbsp;
                 <i class="fas fa-image" @click="setType('noteImg')"></i>&nbsp;
                 <i class="fab fa-youtube" @click="setType('noteVideo')"></i>&nbsp;
@@ -18,7 +19,7 @@ export default {
     `,
   data() {
     return {
-      content: '',
+      content: {title: '', text: ''},
       noteType: null,
       placeholder: "Take a note...",
     }
@@ -40,8 +41,6 @@ export default {
             this.placeholder = "Enter video URL...";
             break;
         }
-        console.log('this.noteType',this.noteType);
-        
     },
     onShowAdd() {
       this.placeholder = "Type something...";

@@ -1,0 +1,12 @@
+.colors {
+  position: absolute;
+}
+
+.color {
+  height: 1rem ;
+  width: 1rem;
+  border-radius: 50%;
+  border: .1rem solid black;
+
+}
+

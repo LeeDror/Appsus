@@ -22,7 +22,6 @@
     text-decoration: line-through;
 }
 
-.pined {
-    color: white;
-    background-color: black;
+.unpinned {
+    color: gray;
 }
