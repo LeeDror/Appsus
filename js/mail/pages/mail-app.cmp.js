@@ -12,12 +12,12 @@ import composeMail from "../cmps/compose-mail.cmp.js";
 
 export default {
     template: `
-        <main class="mail-app">
+        <main class="mail-app app flex">
             <compose-mail/> 
-            <mail-content @close="selectMsg" v-if="selectedMsg" :msgItem="selectedMsg"/>
+            <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>
             <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
 
-        </main> 
+        </main>     
     `,
     data() {
         return {
@@ -40,6 +40,11 @@ export default {
             this.selectedMsg = msg;
             console.log(msg)
             return msg
+        },
+        toggleIsRead(msg){
+            msg.isRead = true
+            this.selectMsg()  
+            console.log('read ', msg)
         }
     },
     // methods: {

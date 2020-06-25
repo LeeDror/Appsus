@@ -4,7 +4,7 @@ import { mailService } from "../services/mail.service.js";
 export default {
     template: `
     <section class="compose-mail">
-    <button v-on:click="isHidden = !isHidden">Compose Mail</button>
+    <button class="compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
      <div v-if="!isHidden">
        <button @click="close">X</button>
         <form class="review" @submit.prevent="sendMail">  

@@ -54,7 +54,7 @@ function addSentMail(formMail) {
         subject: formMail.subject,
         text: formMail.text,
         styles:{},
-        sentAt: formMail.sentAt
+        sentAt: formMail.sentAt,
 
     }
     gSentMails.unshift(newMail);
@@ -71,7 +71,9 @@ function _createMsgs() {
         subject: "subject 1",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: ""
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
     },
     {
         id: "11111111",
@@ -80,7 +82,9 @@ function _createMsgs() {
         subject: "subject 2",
         text: "stam text kolshehu",
         styles: { fontFam: "curier", fontSize: "14", txtColor: "black", bgColor: "lightblue" },
-        recivedAt: ""
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
     },
     {
         id: "989898989",
@@ -89,7 +93,9 @@ function _createMsgs() {
         subject: "subject 3",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: ""
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
     },
     {
         id: "stamstam",
@@ -98,7 +104,9 @@ function _createMsgs() {
         subject: "subject 4",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: ""
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
     }]
 
 }

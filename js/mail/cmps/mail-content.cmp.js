@@ -1,7 +1,7 @@
 export default {
     props: ['msgItem'],
     template: `
-          <section class="mail-item">
+          <section class="mail-content content">
               <button @click="close">X</button>
               {{msgItem.from}}
               {{msgItem.cc}}
@@ -17,7 +17,7 @@ export default {
       methods: {
         close() {
 
-            this.$emit('close', null);
+            this.$emit('close', this.msgItem);
         }
     },
   };
