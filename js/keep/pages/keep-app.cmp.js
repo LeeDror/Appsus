@@ -1,30 +1,20 @@
 //  <note-list :notes="notesToShow"> </note-list>
 import noteList from "../cmps/note-list.cmp.js";
-import noteEdit from "../cmps/note-edit.cmp.js";
+import noteAdd from "../cmps/note-add.cmp.js";
+// import noteEdit from "../cmps/note-edit.cmp.js";
 // import noteText from '../cmps/note-text.cmp.js'
 // import noteImg from '../cmps/note-img.cmp.js'
 // import noteTodos from '../cmps/note-todos.cmp.js'
 // import noteVideo from '../cmps/note-video.cmp.js'
-
+//   // <router-link to="/edit
 import { keepService } from "../services/keep.service.js";
 
 export default {
   template: `
         <section class="keep-app">
             <input class="note-search" type="text" placeholder="Search in title" v-model="filter">
-            <div class="keep-content" @click="onShowEdit()">
-                <div class="new-note">    
-                    <input type="text" placeholder="Take a note...">                    
-                    <i class="fas fa-font"></i>&nbsp;
-                    <i class="fas fa-image"></i>&nbsp;
-                    <i class="fab fa-youtube"></i>&nbsp;
-                    <i class="fas fa-list-ul"></i>
-                </div>  
-                <div @click="onShowEdit()">     
-                    <note-list :notes="notesToShow" @click="onShowEdit()"></note-list>
-                </div>  
-                <note-edit v-if="showEdit"></note-edit>      
-            </div>
+            <note-add @addedNote="renderNotes($event)"></note-add>
+            <note-list :notes="notesToShow"></note-list>
         </section>
     `,
   data() {
@@ -50,14 +40,13 @@ export default {
     },
   },
   methods: {
-    onShowEdit() {
-      this.showEdit = true;
-      console.log('onShowEdit');
-      
-    },
+    renderNotes(event) {
+        keepService.getNotes().then((notes) => 
+            this.notes = notes)
+    }
   },
   components: {
     noteList,
-    noteEdit,
+    noteAdd
   },
 };
