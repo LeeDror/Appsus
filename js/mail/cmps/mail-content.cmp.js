@@ -1,3 +1,5 @@
+import mailReply from './mail-reply.cmp.js';
+
 export default {
     name:'content',
     props: ['msgItem'],
@@ -12,13 +14,23 @@ export default {
               {{msgItem.styles.fontSize}}
               {{msgItem.styles.txtColor}}
               {{msgItem.styles.bgColor}}
-              {{msgItem.recivedAt}}
+              {{msgItem.recivedAt}}           
+              <mail-reply :msg="msgItem" @close="close"/>
           </section>
       `,
       methods: {
         close() {
 
             this.$emit('close', this.msgItem);
+        },
+        openRplyForm(){
+            
         }
     },
+    components: {
+        mailReply
+    }
   };
+
+
+  

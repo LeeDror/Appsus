@@ -1,11 +1,12 @@
 import { mailService } from "../services/mail.service.js";
 
 
-export default {
-    name:'compose',
+export default {   
+    name:'reply',
+    props: ['msg'],
     template: `
-    <section class="compose-mail">
-    <button class="special-btn" v-on:click="isHidden = !isHidden">Compose Mail</button>
+    <section class="mail-reply">
+    <button v-on:click="isHidden = !isHidden">reply</button>
      <div v-if="!isHidden">
        <button @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  
@@ -22,9 +23,9 @@ export default {
     data() {
         return {
             msgToEdit: {
-                to: "",
+                to: this.msg.from,
                 cc: "",
-                from:"",
+                from:'me',
                 sentAt: this.formattedDate,
                 subject:"",
                 freeText: "",
@@ -42,18 +43,19 @@ export default {
             isHidden = !isHidden
         },
         sendMail() {
-            // if(this.msgToEdit.to==='me'){
+            if(this.msgToEdit.to==='me'){
                 mailService.addIncomeMsg(this.msgToEdit);
-            // }
-            // else{
-            //     mailService.addSentMail(this.msgToEdit);
-            // }
+            }
+            else{
+                mailService.addSentMail(this.msgToEdit);
+            }
             
             // console.log('sent!')
             // this.clearMsgForm()
             // close()
-            this.$emit('sent',null);
-            this.isHidden=true
+            // this.$emit('sent',null);
+            this.close()
+        
             // eventBus.$emit('user-msg', `review was added successfully`);
         },
         clearMsgForm(){

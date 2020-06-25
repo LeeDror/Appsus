@@ -5,6 +5,7 @@ import mailContent from "../cmps/mail-content.cmp.js";
 import composeMail from "../cmps/compose-mail.cmp.js";
 import mailSearch from "../cmps/mail-search.cmp.js";
 import mailSort from "../cmps/mail-sort.cmp.js";
+import mailSentItems from "../cmps/mail-sent-items.cmp.js";
 
 
 //<book-details class = "modal-content" @close="selectBook" v-if="selectedBook" :book="selectedBook"/>
@@ -13,13 +14,14 @@ import mailSort from "../cmps/mail-sort.cmp.js";
 
 
 export default {
-    name:'app',
+    name: 'app',
     template: `
         <main class="mail-app">
         <mail-sort @sort="setSort"/>
         <mail-search @search="setSearch"/>
         <section flex app>
-            <compose-mail/> 
+            <compose-mail @sent="loadMsgs"/> 
+            <mail-sent-items @selected ="selectMsg" :sentItems="sentMsgs"></mail-sent-items>
             <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>
             <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
         </section>
@@ -31,86 +33,102 @@ export default {
             msgItems: [],
             selectedMsg: null,
             searchBy: null,
-            sortBy:null
+            sortBy: null,
+            sentMsgs:null
         };
     },
     computed: {
         msgsToShow() {
+            if (this.searchBy) {
+                const searchBy = this.searchBy;
+                if (!searchBy) return this.msgItems
+                var searchedMsgs = this.msgItems.filter((msg) => {
 
+                    if (
 
-            const searchBy = this.searchBy;
-            if (!searchBy) return this.msgItems
-            var searchedMsgs = this.msgItems.filter((msg) => {
+                        msg.subject.includes(searchBy.bySubject) &&
+                        msg.text.includes(searchBy.byTxt) &&
+                        msg.from.includes(searchBy.byFrom)
 
-                if (
+                    ) {
+                        return msg;
+                    }
+                });
+                if (this.sortBy) {
+                    console.log(sortBy)
+                    switch (this.sortBy) {
+                        case 'Subject':
+                            return searchedMsgs.sort((a, b) => b.subject - a.subject)
 
-                    msg.subject.includes(searchBy.bySubject) &&
-                    msg.text.includes(searchBy.byTxt) &&
-                     msg.from.includes(searchBy.byFrom)
+                            break;
+                        case 'recivedAt':
+                            return searchedMsgs.sort((a, b) => b.recivedAt - a.recivedAt)
 
-                ) {
-                    return msg;
+                            break;
+                        default:
+                            return searchedMsgs
+                    }
                 }
-            });
-            switch(this.sortBy) {
-                case 'Subject':
-                    return searchedMsgs.sort(function (a, b) {
-                        return a.subject -b.subject;
-                      });
-                  break;
-                case 'recivedAt':
-                    return searchedMsgs.sort(function (a, b) {
-                        return a.recivedAt -b.recivedAt;
-                      });
-                  break;
-                default:
+                else {
                     return searchedMsgs
-              }
-              
+                }
 
-            // return searchedMsgs;
+            }
+            else {
+                return this.msgItems
+            }
+
         },
         hasItems() {
             return this.msgItems && this.msgItems > 0;
         },
     },
     methods: {
-        selectMsg(msg) {
 
-   
+        loadSentMsgs() {
+
+            console.log('loaded')
+
+            var ret = this.msgItems.filter((msg) => { msg.sent === true })
+            console.log('ret ', ret)
+
+        },
+
+        loadMsgs() {
+            this.msgItems = mailService.getMsgs()
+
+        },
+
+        selectMsg(msg) {
 
             this.selectedMsg = msg;
             console.log(msg)
             return msg
         },
-        toggleIsRead(msg){
-            msg.isRead =!msg.isRead
-            this.selectMsg()  
+        toggleIsRead(msg) {
+            msg.isRead = !msg.isRead
+            this.selectMsg()
             console.log('read ', msg)
         },
-        setSearch(searchBy){
-           this.searchBy=searchBy
+        setSearch(searchBy) {
+            this.searchBy = searchBy
         },
         setSort(sortBy) {
             this.sortBy = sortBy;
-            console.log(' emit',sortBy)
+            console.log(' emit', sortBy)
         },
     },
-    // methods: {
-    //     setFilter(filterBy) {
-    //         this.filterBy = filterBy;
-    //     },
-    // },
+
     created() {
- 
-        console.log('created')
-        this.msgItems =mailService.getMsgs()
-    
-            // .then((items) => (this.msgItems = items));
-            console.log('msgitems ',this.msgItems)
+
+
+        this.msgItems = mailService.getMsgs()
+
+        // .then((items) => (this.msgItems = items));
+
     },
     components: {
-        mailList, mailContent,composeMail,mailSearch
-         ,mailSort
+        mailList, mailContent, composeMail, mailSearch
+        , mailSort, mailSentItems
     }
 };

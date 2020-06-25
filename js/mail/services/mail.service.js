@@ -23,7 +23,8 @@ export const mailService = {
     getMsgs,
     getMsgById,
     addSentMail,
-    removeReview
+    addIncomeMsg
+    // removeReview
 };
 
 function getMsgs() {
@@ -34,11 +35,11 @@ function getMsgs() {
 }
 
 //todo: delete msg
-function removeReview(bookId, reviewIdx) {
-    let currBook = gBooks.find((book) => book.id === bookId)
-    currBook.reviews.splice(reviewIdx, 1);
-    Utils.storeToStorage('msgs', gBooks);
-}
+// function removeMsg(msgId, reviewIdx) {
+//     let currBook = gBooks.find((book) => book.id === bookId)
+//     currBook.reviews.splice(reviewIdx, 1);
+//     Utils.storeToStorage('msgs', gBooks);
+// }
 
 function getMsgById(id) {
     const msg = gMsgs.find(msg => msg.id === id)
@@ -52,13 +53,32 @@ function addSentMail(formMail) {
         to: formMail.to,
         cc: formMail.cc,
         subject: formMail.subject,
-        text: formMail.text,
+        text: formMail.freeText,
         styles:{},
         sentAt: formMail.sentAt,
 
     }
-    gSentMails.unshift(newMail);
+    gMsgs.unshift(newMail);
     utils.storeToStorage('sentMsgs', gSentMails);
+}
+
+function addIncomeMsg(formMail) {
+    var newMail = {
+        id: utils.getRandomId,
+        to: 'me',
+        from: formMail.from,
+        cc: formMail.cc,
+        subject: formMail.subject,
+        text: formMail.freeText,
+        styles:{},
+        sentAt: formMail.sentAt,
+        isRead:false,
+        isStarred:false,
+        sent:true
+
+    }
+    gMsgs.unshift(newMail);
+    utils.storeToStorage('msgs', gMsgs);
 }
 
 
@@ -66,6 +86,7 @@ function _createMsgs() {
 
     return [{
         id: "OXeMG8wNskc",
+        to: 'me',
         from: "da da",
         cc: "du du",
         subject: "subject 1",
@@ -73,7 +94,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "11111111",
@@ -84,7 +106,8 @@ function _createMsgs() {
         styles: { fontFam: "curier", fontSize: "14", txtColor: "black", bgColor: "lightblue" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "989898989",
@@ -95,7 +118,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:true
     },
     {
         id: "stamstam",
@@ -106,7 +130,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "stamstam",
@@ -117,7 +142,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:true
     },
     {
         id: "stamstam",
@@ -128,7 +154,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "stamstam",
@@ -139,7 +166,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "stamstam",
@@ -150,7 +178,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "stamstam",
@@ -161,7 +190,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     },
     {
         id: "stamstam",
@@ -172,7 +202,8 @@ function _createMsgs() {
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
         isRead:false,
-        isStarred:false
+        isStarred:false,
+        sent:false
     }]
 
 }
