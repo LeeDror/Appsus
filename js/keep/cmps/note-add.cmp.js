@@ -1,4 +1,3 @@
-
 import { keepService } from "../services/keep.service.js";
 
 export default {
@@ -19,42 +18,40 @@ export default {
     `,
   data() {
     return {
-      content: {title: '', text: ''},
+      content: { title: "", text: "" },
       noteType: null,
       placeholder: "Take a note...",
-    }
+    };
   },
   methods: {
     setType(type) {
-        this.noteType = type;
-        switch (type) {
+      this.noteType = type;
+      switch (type) {
         case "noteText":
-            this.placeholder = "Type something...";
-            break;
-        case "noteTodos": 
-            this.placeholder = "Enter todos...";
-            break;
-        case "noteImg": 
-            this.placeholder = "Enter image URL...";
-            break;
-        case "noteVideo": 
-            this.placeholder = "Enter video URL...";
-            break;
-        }
-        console.log(this.noteType, 'this.noteType');
-        
+          this.placeholder = "Type something...";
+          break;
+        case "noteTodos":
+          this.placeholder = "Enter todos...";
+          break;
+        case "noteImg":
+          this.placeholder = "Enter image URL...";
+          break;
+        case "noteVideo":
+          this.placeholder = "Enter video URL...";
+          break;
+      }
+      console.log(this.noteType, "this.noteType");
     },
     saveNote() {
-    
       keepService.addNote(this.noteType, this.content);
       this.$emit("addedNote");
-      this.content = {title: '', text: ''};
+      this.content = { title: "", text: "" };
       this.showAdd = false;
       this.noteType = null;
       this.placeholder = "Take a note...";
-    }
+    },
   },
   created() {
     this.noteType = null;
-  }
+  },
 };
