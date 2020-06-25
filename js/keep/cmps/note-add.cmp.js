@@ -6,8 +6,8 @@ export default {
     <section>
         <div class="keep-content">
             <div class="new-note">    
-                <input type="text" v-if="noteType" placeholder="Title" @click="setType('noteText')" v-model="content.title"> 
-                <input type="text" :placeholder="placeholder" @click="setType('noteText')" v-model="content.text"> 
+                <input type="text" v-if="noteType" placeholder="Title" v-model="content.title"> 
+                <input type="text" :placeholder="placeholder" v-model="content.text"> 
                 <i class="fas fa-font" @click="setType('noteText')"></i>&nbsp;
                 <i class="fas fa-image" @click="setType('noteImg')"></i>&nbsp;
                 <i class="fab fa-youtube" @click="setType('noteVideo')"></i>&nbsp;
@@ -41,16 +41,14 @@ export default {
             this.placeholder = "Enter video URL...";
             break;
         }
-    },
-    onShowAdd() {
-      this.placeholder = "Type something...";
-      this.noteType = "noteText";
+        console.log(this.noteType, 'this.noteType');
+        
     },
     saveNote() {
     
       keepService.addNote(this.noteType, this.content);
       this.$emit("addedNote");
-      this.content = '';
+      this.content = {title: '', text: ''};
       this.showAdd = false;
       this.noteType = null;
       this.placeholder = "Take a note...";

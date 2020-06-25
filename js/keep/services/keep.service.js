@@ -18,17 +18,12 @@ function addNote(type, content) {
     isPinned: false,
     style: { backgroundColor: "#ffffff", color: "#000000" },
     info: {
-      title: "",
-      url: "",
-      todos: [],
+      title: content.title,
+      url: content.text,
+      text: content.text,
+      todos: content.text.split(",").map(function(todo) { return {text: todo, doneAt: null}})
     },
   };
-  console.log(type);
-
-  if (type = "noteTodos") newNote.info.todos = content.split(",");
-  else if ((type = "noteImg") || (type = "noteVideo")) newNote.info.url = content;
-  else if (type = "noteText") newNote.info.title = content;
-
   gNotes.unshift(newNote);
   utils.storeToStorage(NOTE_KEY, gNotes);
 }

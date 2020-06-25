@@ -8,3 +8,7 @@
 .note-preview img {
     width: 100%;
 }
+
+.note-title {
+    font-weight: bold;
+}
