@@ -1,10 +1,18 @@
+{/* <input type="checkbox" :checked='msgItem.isRead' @click='$event.stopPropagation()'/> */}
+//v-for="msgItem in msgItems" 
+
 import mailItem from './mail-item.cmp.js';
 
 export default {
+    name:'list',
     props: ['msgItems'],
     template: `
     <table class="mail-list tbl clean-list">
-    <mail-item v-for="msgItem in msgItems" @click.native="selectMsg(msgItem)" :msgItem="msgItem" :key="msgItem.id"></mail-item>        
+    <section v-for="msgItem in msgItems"> 
+    
+    <mail-item @click.native="selectMsg(msgItem)" :msgItem="msgItem" :key="msgItem.id"></mail-item> 
+      
+    </section>    
   </table>
     `,
     methods: {
@@ -13,6 +21,7 @@ export default {
             console.log('item ', item)
             this.$emit('selected', item);
         },
+
     },
     components: {
         mailItem

@@ -1,4 +1,5 @@
 export default {
+    name:'content',
     props: ['msgItem'],
     template: `
           <section class="mail-content content">

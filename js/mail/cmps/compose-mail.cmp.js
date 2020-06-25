@@ -2,12 +2,13 @@ import { mailService } from "../services/mail.service.js";
 
 
 export default {
+    name:'compose',
     template: `
     <section class="compose-mail">
     <button class="compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
      <div v-if="!isHidden">
        <button @click="close">X</button>
-        <form class="review" @submit.prevent="sendMail">  
+        <form class="newmsg" @submit.prevent="sendMail">  
             <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>         
             <input type="text" placeholder="cc:" v-model="msgToEdit.cc"/>
             <textarea v-model="msgToEdit.freeText" placeholder="your message here..."></textarea>

@@ -1,22 +1,32 @@
+//<input type="checkbox" v-model="msgItem.isRead"  @click.prevernt='click':checked='msgItem.isRead'/>
 // import mailContent from './mail-content.cmp.js';
 // submit.prevent="onSubmit"
 export default {
+  name:'item',
   props: ['msgItem'],
   template: `
-          <tr class="mail-item row" v-bind:class="{unread:!isRead}">
-          <input type="checkbox" v-model="msgItem.isRead"  @click.prevernt='click':checked='msgItem.isRead'/>
+  <section class = "mail-item row" >
+  
+          <tr class="mail-item row" v-bind:class="{unread:!msgItem.isRead}">
+          <input type="checkbox" :checked ='msgItem.isRead' v-on:click.stop="toggleIsRead" /> 
             <td>{{msgItem.from}}</td>
             <td>{{msgItem.subject}}</td>
             <td>{{msgItem.recivedAt}}</td>
+   
     
           </tr>
+          </section>  
       `,
-      data() {
-        return {
-            isRead:this.msgItem.isRead
-        };
-    },
+      // data() {
+      //   return {
+      //       isRead:this.msgItem.isRead
+      //   };
+    //},
   methods: {
+
+    toggleIsRead(){
+      this.msgItem.isRead =!this.msgItem.isRead
+    }
 
   },
   components: {

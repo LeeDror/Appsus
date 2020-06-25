@@ -107,6 +107,72 @@ function _createMsgs() {
         recivedAt: "",
         isRead:false,
         isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "subject l",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "kmxwlskxmslkqcm",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "any one any who any time",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "lalalalala",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "subject 4",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
+    },
+    {
+        id: "stamstam",
+        from: "i love shnatz",
+        cc: "michael bargad",
+        subject: "subject 4",
+        text: "ma nishma ? lama ? ha ha ha",
+        styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
+        recivedAt: "",
+        isRead:false,
+        isStarred:false
     }]
 
 }
