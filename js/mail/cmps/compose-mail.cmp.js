@@ -1,4 +1,5 @@
 import { mailService } from "../services/mail.service.js";
+import {eventBus} from "../../services/event-bus.service.js";
 
 
 export default {
@@ -44,6 +45,7 @@ export default {
         sendMail() {
             // if(this.msgToEdit.to==='me'){
                 mailService.addIncomeMsg(this.msgToEdit);
+                eventBus.$emit('usr-msg', `email sent successfully`);
             // }
             // else{
             //     mailService.addSentMail(this.msgToEdit);
@@ -54,7 +56,7 @@ export default {
             // close()
             this.$emit('sent',null);
             this.isHidden=true
-            // eventBus.$emit('user-msg', `review was added successfully`);
+         
         },
         clearMsgForm(){
             this.msgToEdit.to=""

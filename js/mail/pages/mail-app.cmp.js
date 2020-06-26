@@ -8,23 +8,28 @@ import mailSort from "../cmps/mail-sort.cmp.js";
 import mailSentItems from "../cmps/mail-sent-items.cmp.js";
 
 
-//<book-details class = "modal-content" @close="selectBook" v-if="selectedBook" :book="selectedBook"/>
-//<book-list @selected="selectBook" v-else v-bind:books="booksToShow"></book-list> 
-
-
-
 export default {
     name: 'app',
     template: `
         <main class="mail-app">
-        <mail-sort @sort="setSort"/>
-        <mail-search @search="setSearch"/>
-        <section flex app>
-            <compose-mail @sent="loadMsgs"/> 
-            <mail-sent-items @selected ="selectMsg" :sentItems="sentMsgs"></mail-sent-items>
-            <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>
-            <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
+
+        <section class="nav-inbox flex space-around align-center justify-center"> 
+          <div class="readCount">read: {{getReadCount}}</div>
+          <mail-sort class="flex align-center justify-center space-arount" @sort="setSort"/>
+          <mail-search @search="setSearch"/>
+        </section> 
+        
+        <section class="screen-inbox flex">
+           <section class="side-inbox flex-column space-around">
+               <compose-mail @sent="loadMsgs"/>     
+               <mail-sent-items @selected ="selectMsg" :sentItems="loadSentMsgs"></mail-sent-items>
+           </section>
+           <section class="body-inbox">
+              <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>
+              <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow" v-if="loadSentMsgs"></mail-list> 
+           </section>
         </section>
+        
 
         </main> 
     `,
@@ -34,10 +39,25 @@ export default {
             selectedMsg: null,
             searchBy: null,
             sortBy: null,
-            sentMsgs:null
+            sentMsgs: null
         };
     },
     computed: {
+        getReadCount() {
+
+            var readMsgs = this.msgItems.filter((msg) => {
+
+                if (
+
+                    msg.isRead === true
+
+                ) {
+                    return msg;
+                }
+            });
+            return (readMsgs.length)
+  
+        },
         msgsToShow() {
             if (this.searchBy) {
                 const searchBy = this.searchBy;
@@ -82,17 +102,28 @@ export default {
         hasItems() {
             return this.msgItems && this.msgItems > 0;
         },
-    },
-    methods: {
 
         loadSentMsgs() {
 
-            console.log('loaded')
+            var searchedMsgs = this.msgItems.filter((msg) => {
 
-            var ret = this.msgItems.filter((msg) => { msg.sent === true })
-            console.log('ret ', ret)
+                if (
+
+                    msg.sent === true
+
+                ) {
+                    return msg;
+                }
+            });
+
+            console.log(' serched', searchedMsgs)
+            this.sentMsgs = searchedMsgs
+            return searchedMsgs
 
         },
+    },
+    methods: {
+
 
         loadMsgs() {
             this.msgItems = mailService.getMsgs()
@@ -117,6 +148,9 @@ export default {
             this.sortBy = sortBy;
             console.log(' emit', sortBy)
         },
+        emptySent() {
+            this.sentMsgs = ''
+        }
     },
 
     created() {
