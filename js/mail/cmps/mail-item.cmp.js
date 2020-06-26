@@ -1,6 +1,9 @@
+import { mailService } from "../services/mail.service.js";
+
 //<input type="checkbox" v-model="msgItem.isRead"  @click.prevernt='click':checked='msgItem.isRead'/>
 // import mailContent from './mail-content.cmp.js';
 // submit.prevent="onSubmit"
+
 export default {
   name:'item',
   props: ['msgItem'],

@@ -1,8 +1,55 @@
+/*pre-helpers*/
+/* * {
+    box-sizing: border-box;
+}
+.box {
+    font-size: 2em;
+    border: 1px solid black;
+} */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px 200px;
+}
+
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 200px 1fr 150px;
+	grid-template-areas:
+		'. header'
+		'main sidebar'
+        'footer .';
+
+    gap: 25px 10px;
+}
+
+
+header {
+    grid-area: header;
+	background-color: #d822f0;
+}
+main {
+    grid-area: main;
+	background-color: #9896f1;
+}
+.repeat{
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
 
 /* helpers */
 
 .flex {
     display: flex;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
 }
 .align-center {
     align-items: center;
@@ -66,9 +113,12 @@
     margin-bottom: 7.5px;
 }
 
+
 .tbl{
+    position: fixed;
 background-color:lightgrey;
-width: 70%;
+/* width: 60%; */
+height: 300px;
 text-align: center;
 margin-left: 5%;
 border-collapse: collapse;
@@ -117,15 +167,65 @@ border-collapse: collapse;
     }
     .special-btn:hover{  
 
-        box-shadow: inset 1px 0 0  #dadce0,
-        inset  -1px 0 0 #dadce0,
-        0 1px 2px 0 rgba(60,64,67,.3),
-        0 1px 3px 1px rgba(60,64,67,.15);
+        box-shadow: inset 2px 0 0  #dadce0,
+        inset  -3px 0 0 #dadce0,
+        0 2px 3px 0 rgba(60,64,67,.3),
+        0 2px 4px 1px rgba(60,64,67,.15);
         z-index: 1;
      }
      .unread{
          font-weight: bolder;
      }
-  
+
+     .user-message{
+         height: 45px;
+         width: 120px;
+         background-color: papayawhip;
+         border: solid 0.5px purple;
+         position: fixed;
+         top: 80px;
+         right: 5px;
+         font-style: oblique;
+     }
+     .nav-inbox{
+        max-width: 85%;
+        margin-left: 8%;
+        margin-top: 20px;
+        border: solid 0.5px rgb(151, 93, 151);
+    }
+    .mail-sort{
+        background-color: rgba(115, 123, 129, 0.3);
+        
+        width: 300px;
+        font-size: 0.9em;
+    }
+    .mail-app{
+        font-family:  'Arial';
+    }
+    .screen-inbox{
+        
+        margin-top:30px;
+        margin-left: 10%
+    }
+    .side-inbox{
+        height: 138px;
+        width: 100px;
+        background-color: rosybrown;
+    }
+.sent-div{
+    width: 100%;
+     margin-left: 100px;
+    /* margin-top:100px; */
+    z-index: 1; 
+
+    
+}
+.sent-table{
+    height: 350px;
+    /* margin-left: 1000px; */
+    /* z-index: 1; */
+    background-color: royalblue;
+}
+
 
 

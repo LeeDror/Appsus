@@ -23,7 +23,8 @@ export const mailService = {
     getMsgs,
     getMsgById,
     addSentMail,
-    addIncomeMsg
+    addIncomeMsg,
+    updateRead
     // removeReview
 };
 
@@ -42,8 +43,15 @@ function getMsgs() {
 // }
 
 function getMsgById(id) {
-    const msg = gMsgs.find(msg => msg.id === id)
-    return Promise.resolve(msg)
+    return msg = gMsgs.find(msg => msg.id === id)
+    // return Promise.resolve(msg)
+}
+
+function updateRead(id) {
+    var msg = getMsgById(id)
+    msg.isRead = !msg.isRead
+    utils.storeToStorage('msgs', gMsgs);
+
 }
 
 //todo: add msg
@@ -54,7 +62,7 @@ function addSentMail(formMail) {
         cc: formMail.cc,
         subject: formMail.subject,
         text: formMail.freeText,
-        styles:{},
+        styles: {},
         sentAt: formMail.sentAt,
 
     }
@@ -70,11 +78,11 @@ function addIncomeMsg(formMail) {
         cc: formMail.cc,
         subject: formMail.subject,
         text: formMail.freeText,
-        styles:{},
+        styles: {},
         sentAt: formMail.sentAt,
-        isRead:false,
-        isStarred:false,
-        sent:true
+        isRead: false,
+        isStarred: false,
+        sent: true
 
     }
     gMsgs.unshift(newMail);
@@ -93,9 +101,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "11111111",
@@ -105,9 +113,9 @@ function _createMsgs() {
         text: "stam text kolshehu",
         styles: { fontFam: "curier", fontSize: "14", txtColor: "black", bgColor: "lightblue" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "989898989",
@@ -117,9 +125,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:true
+        isRead: false,
+        isStarred: false,
+        sent: true
     },
     {
         id: "stamstam",
@@ -129,9 +137,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "stamstam",
@@ -141,9 +149,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:true
+        isRead: false,
+        isStarred: false,
+        sent: true
     },
     {
         id: "stamstam",
@@ -153,9 +161,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "stamstam",
@@ -165,9 +173,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "stamstam",
@@ -177,9 +185,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "stamstam",
@@ -189,9 +197,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     },
     {
         id: "stamstam",
@@ -201,9 +209,9 @@ function _createMsgs() {
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
         recivedAt: "",
-        isRead:false,
-        isStarred:false,
-        sent:false
+        isRead: false,
+        isStarred: false,
+        sent: false
     }]
 
 }

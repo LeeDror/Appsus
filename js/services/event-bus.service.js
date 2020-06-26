@@ -1,5 +1,5 @@
 
-event-bus.service
-const bus = new Vue();
 
-export const eventBus = bus;
+const evBus = new Vue();
+
+export const eventBus = evBus;

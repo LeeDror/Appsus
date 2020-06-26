@@ -1,8 +1,9 @@
 
-import {myRouter} from './routes.js'
+import { myRouter } from './routes.js'
 
 // import appsusApp from './pages/appsus-app.cmp.js';
 import appHeader from './pages/app-header.cmp.js';
+import userMessage from "./cmps/user-message.cmp.js";
 
 new Vue({
   el: '#app',
@@ -11,6 +12,7 @@ new Vue({
         <div>
             <app-header />
             <main>
+                <user-message/>
                 <router-view />
             </main>
             <footer class="app-footer">
@@ -20,7 +22,7 @@ new Vue({
     `,
   components: {
     // appsusApp,
-    appHeader
+    appHeader, userMessage
   }
 })
 
