@@ -5,10 +5,10 @@ export default {
     name:'reply',
     props: ['msg'],
     template: `
-    <section class="mail-reply">
-    <button v-on:click="isHidden = !isHidden">reply</button>
+    <section class="mail-reply flex-row align-center">
+    <button class="btnrply" v-on:click="isHidden = !isHidden">reply</button>
      <div v-if="!isHidden">
-       <button @click="close">X</button>
+     <button @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  
             <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
             <input type="text" ref="textInput" placeholder="from:" v-model="msgToEdit.from"/>        
@@ -17,6 +17,7 @@ export default {
             <textarea v-model="msgToEdit.freeText" placeholder="your message here..."></textarea>
             <button>Send!</button>
         </form>
+        
       </div>
     </section>
     `,

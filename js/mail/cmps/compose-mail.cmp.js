@@ -6,7 +6,7 @@ export default {
     name:'compose',
     template: `
     <section class="compose-mail">
-    <button class="special-btn" v-on:click="isHidden = !isHidden">Compose Mail</button>
+    <button class="special-btn compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
      <div v-if="!isHidden">
        <button @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  

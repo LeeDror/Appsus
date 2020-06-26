@@ -54,6 +54,13 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 .align-center {
     align-items: center;
 }
+.align-start{
+    align-items: flex-start;
+}
+/* .align-right{
+
+}
+.jus */
 .justify-center {
     justify-content: center;
 }
@@ -115,13 +122,17 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 
 .tbl{
+    top: 205px;
     position: fixed;
 background-color:lightgrey;
-/* width: 60%; */
+width: 60%;
 height: 300px;
 text-align: center;
-margin-left: 5%;
+/* margin-left: 3%; */
 border-collapse: collapse;
+left: 18%;
+/* margin-left: 3%; */
+/* width: 30%; */
 
 }
 
@@ -146,11 +157,12 @@ border-collapse: collapse;
 
 .content{
 
-    width: 400px;
-    height: 200px;
-    margin-left: 25%;
-    background-color: darkkhaki;
-    border: thin black;
+    width: 500px;
+    height: 300px;
+    /* top:5%; */
+    margin-left: 220%;
+    background-color: rgb(173, 198, 202);
+    border: solid black;
 
       }
 
@@ -184,8 +196,8 @@ border-collapse: collapse;
          border: solid 0.5px purple;
          position: fixed;
          top: 80px;
-         right: 5px;
-         font-style: oblique;
+         right: 550px;
+         /* font-style: oblique; */
      }
      .nav-inbox{
         max-width: 85%;
@@ -200,7 +212,7 @@ border-collapse: collapse;
         font-size: 0.9em;
     }
     .mail-app{
-        font-family:  'Arial';
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
     .screen-inbox{
         
@@ -208,9 +220,10 @@ border-collapse: collapse;
         margin-left: 10%
     }
     .side-inbox{
-        height: 138px;
+        height: 170px;
         width: 100px;
-        background-color: rosybrown;
+        /* border: solid rosybrown  */
+        background-color: rgba(182, 155, 155, 0.466);
     }
 .sent-div{
     width: 100%;
@@ -221,11 +234,60 @@ border-collapse: collapse;
     
 }
 .sent-table{
-    height: 350px;
+    top: 205px;
+    height: 400px;
     /* margin-left: 1000px; */
     /* z-index: 1; */
-    background-color: royalblue;
+    background-color: rgb(132, 154, 223);
+    position: fixed;
+    
+    width: 75%;
+    /* height: 300px; */
+    text-align: center;
+    margin-left: 5%;
+    border-collapse: collapse;
+   z-index: 1; 
 }
+td{
+    width: 250px;
+}
+.compose{
+    margin-top: 8px;
+}
+.sent-list{
+    margin-top: 10px;
+}
+.backto{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-weight: bold;
+}
+.mail-reply{
+    background-color: rgb(233, 231, 106);
+    /* border-top: thin purple; */
+}
+.btnrply{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-weight: bold; 
+    width: 50px;
+    height: 50px;
+    font-weight: bolder;
+}
+
+.newmsg{
+height: 700px;
+    /* width: 500px; */
+}
+
 
 
 
