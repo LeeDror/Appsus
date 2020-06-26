@@ -1,14 +1,13 @@
-
-import noteText from '../cmps/note-text.cmp.js';
-import noteImg from '../cmps/note-img.cmp.js';
-import noteTodos from '../cmps/note-todos.cmp.js';
-import noteVideo from '../cmps/note-video.cmp.js';
-import color from '../cmps/color.cmp.js';
+import noteText from "../cmps/note-text.cmp.js";
+import noteImg from "../cmps/note-img.cmp.js";
+import noteTodos from "../cmps/note-todos.cmp.js";
+import noteVideo from "../cmps/note-video.cmp.js";
+import color from "../cmps/color.cmp.js";
 // <input type="color" v-model="note.style.backgroundColor" id="bgColor" @click.stop>
 import { keepService } from "../services/keep.service.js";
 
 export default {
-  props: ['notes'],
+  props: ["notes"],
   template: `
         <section class="note-list">
             <div class="note-preview" v-for="(note, idx) in notes" :style="note.style">
@@ -16,6 +15,7 @@ export default {
                 <i class="fas fa-palette" @click="showColor=!showColor"></i>
                 <color v-if="showColor" :note="note" @setVal="setNote($event, idx)"> </color>      
                 <i :class="{unpinned: !note.isPinned}" @click.stop="note.isPinned=!note.isPinned ,setNote(note)" class="fas fa-thumbtack" ></i>
+                <i class="fas fa-trash-alt" @click.stop="removeNote(note)></i>
                 </button>
             </div>
         </section>
@@ -23,24 +23,25 @@ export default {
   data() {
     return {
       editNotes: [],
-      showColor: false
-    }
+      showColor: false,
+    };
   },
   created() {
-    keepService.getNotes()
-      .then (notes => this.editNotes = notes)
+    keepService.getNotes().then((notes) => (this.editNotes = notes));
   },
   methods: {
-    setNote (note) {
-      keepService.saveEditNote(note)
-        .then(notes => this.editNotes = notes)        
-    }
+    setNote(note) {
+      keepService.saveEditNote(note).then((notes) => (this.editNotes = notes));
+    },
+    removeNote(note) {
+      keepService.removeNote(note).then((notes)=>(this.editNotes = notes));
+    },
   },
   components: {
     noteText,
     noteImg,
     noteTodos,
     noteVideo,
-    color
+    color,
   },
 };
