@@ -7,6 +7,7 @@ export const keepService = {
   addNote,
   getNewNote,
   saveEditNote,
+  removeNote
 };
 
 var gNotes = createNotes();
@@ -26,6 +27,14 @@ function addNote(type, content) {
   };
   gNotes.unshift(newNote);
   utils.storeToStorage(NOTE_KEY, gNotes);
+}
+
+
+function removeNote(deleteNote) {
+  var idx = gNotes.findIndex((note) => note.id === deleteNote.id);
+  gNotes.splice(idx, 1);
+  utils.storeToStorage(NOTE_KEY, gNotes);
+  return Promise.resolve(gNotes);
 }
 
 function getNewNote() {
