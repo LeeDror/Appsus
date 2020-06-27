@@ -15,6 +15,7 @@ new Vue({
                 <router-view />
             </main>
             <footer class="app-footer">
+              <h4 class="logo">Appsus</h4>
                 coffeerights 2020
             </footer>
         </div>

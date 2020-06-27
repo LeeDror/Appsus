@@ -1,6 +1,8 @@
 @import './helpers.css';
 @import './layout.css';
 @import './base.css';
+@import './appsus.css';
+@import './fonts.css';
 
 /* APPS */
 
@@ -9,4 +11,8 @@
  @import './apps/mail/mail-main.css';
 
 
-
+ @media (max-width: 700px) {
+    .new-note {
+        flex-direction: column;
+    }
+}

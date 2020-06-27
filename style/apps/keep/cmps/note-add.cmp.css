@@ -1,0 +1,16 @@
+.new-note {
+    justify-content: center;
+    background-color: white;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    align-items: center
+  }
+  
+.new-note>* {
+    margin: .5rem
+}
+
+  .new-note input {
+    border: none;
+  }
+  

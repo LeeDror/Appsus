@@ -1,7 +1,6 @@
 .app-header {
     height: 10vh;
     background-color: rgba(146, 29, 101, 0.753);
-    color: white;
     padding-bottom: 1rem;
     padding: 0 2rem;
 }
@@ -15,5 +14,23 @@ main {
 .app-footer {
     min-height: 10vh;
     background-color: rgba(146, 29, 101, 0.753);
+    padding: 1rem;
 }
 
+.app-nav {
+    display: grid;
+    grid-template-columns: 5rem 5rem;
+    grid-template-rows: 5rem 5rem 5rem;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255);
+    top: 0;
+    right: 0;
+    position: fixed;
+    z-index: 1;
+    align-items: center;
+    margin-top: 3.5rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+  }
+  
+  
