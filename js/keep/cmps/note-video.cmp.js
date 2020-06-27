@@ -4,10 +4,9 @@ export default {
     <section>
         <input class="note-title" type="text" v-model="note.info.title" @blur="reportVal"/>
         <hr>
-        <video>
-            <source src="note.info.url" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <iframe height="100%"
+          :src="note.info.url">
+        </iframe>
     </section>
     `,
     methods: {

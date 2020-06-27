@@ -6,7 +6,7 @@ export default {
   template: `
         <section class="keep-app">
             <input class="note-search" type="text" placeholder="Search in title" v-model="filter">
-            <note-add @addedNote="renderNotes()"></note-add>
+            <note-add @addedNote="renderNotes"></note-add>
             <note-list :notes="notesToShow" @remove="removeNote" @edit="saveEditNote" @send=""></note-list>
         </section>
     `,
@@ -35,8 +35,8 @@ export default {
     },
   },
   methods: {
-    renderNotes() {
-      keepService.addNote(this.noteType, this.content);
+    renderNotes(noteType, content) {
+      keepService.addNote(noteType, content);
       keepService.getNotes().then((notes) => (this.notes = notes));
     },
     removeNote(note) {

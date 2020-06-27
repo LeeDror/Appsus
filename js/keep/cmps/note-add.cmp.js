@@ -43,9 +43,10 @@ export default {
           this.placeholder = "Enter video URL...";
           break;
       }
-      console.log(this.noteType, "this.noteType");
     },
     saveNote() {
+      console.log('this.content', this.content);
+      
       this.$emit("addedNote",this.noteType, this.content);
       this.content = { title: "", text: "" };
       this.showAdd = false;
@@ -56,5 +57,6 @@ export default {
   },
   created() {
     this.noteType = null;
+    this.content= { title: "", text: "" }
   },
 };
