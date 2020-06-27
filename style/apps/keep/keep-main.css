@@ -2,8 +2,8 @@
 
 
 /* CPMS */
-
-@import './cmps/keep-app.cmp.css';
+/* 
+@import './cmps/keep-app.cmp.css'; */
 @import './cmps/color.cmp.css';
 @import './cmps/note-preview.cmp.css';
 @import './cmps/note-list.cmp.css';
