@@ -1,17 +1,11 @@
-import { bookRouter } from '../routes.js'
 
 import bookList from '../cmps/book-list.cmp.js';
 import bookDetails from './book-details.cmp.js';
 import bookFilter from '../cmps/book-filter.cmp.js';
 import userMsg from '../cmps/user-msg.cmp.js';
-import bookHeader from './book-header.cmp.js';
 import { bookService } from "../services/book.service.js";
 
-//    <book-header/>
-
-
 export default {
-  //router: bookRouter,
   template: `
     <main class='app-main'>
         <book-filter v-show="!selectedBook" @filtered="setFilter"></book-filter>
@@ -57,7 +51,6 @@ export default {
     bookList,
     bookDetails,
     bookFilter,
-    userMsg,
-    bookHeader
+    userMsg
   }
 }

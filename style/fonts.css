@@ -2,3 +2,8 @@
     font-family: piedra;
     src:url(./fonts/Piedra-Regular.ttf)
 }
+
+@font-face{
+    font-family: poppins;
+    src:url(./fonts/Poppins-Light.ttf)
+}

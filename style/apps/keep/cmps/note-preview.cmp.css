@@ -1,7 +1,9 @@
 .note-preview {
-  border: 1px solid black;
+  border: 1px solid rgb(121, 119, 119);
   padding: 1rem;
-  transition: box-shadow 1s;
+  border-radius: 5px;
+  transition: box-shadow .7s, border-color .7s;
+  cursor: pointer;
 }
 
 .note-preview img {
@@ -18,4 +20,5 @@
 
 .note-preview:hover {
   box-shadow: 0 0 15px black;
+  border-color: black;
 }

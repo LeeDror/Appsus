@@ -1,12 +1,8 @@
 export default {
   template: `
-        <section class="about-us app-main">
-            <nav>
-                <router-link to="/about/company">Our Company</router-link> | 
-                <router-link to="/about/team">Our Team</router-link> | 
-                <router-link to="/about/service">Our Services</router-link>
-            </nav>
-            <router-view /> 
+        <section class="about-us app-main" >
+            <div>Website by: Ofra Bargad and Lee Dror</div>
+            <div>CodingAcademy 05/2020</div>
         </section>
     `,
 };
