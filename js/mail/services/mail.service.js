@@ -100,7 +100,7 @@ function _createMsgs() {
         subject: "subject 1",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: "",
+        recivedAt: new Date().toISOString().substring(0, 10),
         isRead: false,
         isStarred: false,
         sent: false
@@ -112,7 +112,7 @@ function _createMsgs() {
         subject: "subject 2",
         text: "stam text kolshehu",
         styles: { fontFam: "curier", fontSize: "14", txtColor: "black", bgColor: "lightblue" },
-        recivedAt: "",
+        recivedAt: new Date().toISOString().substring(0, 10),
         isRead: false,
         isStarred: false,
         sent: false
@@ -124,7 +124,7 @@ function _createMsgs() {
         subject: "subject 3",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: "",
+        recivedAt: new Date().toISOString().substring(0, 10),
         isRead: false,
         isStarred: false,
         sent: true
@@ -136,7 +136,7 @@ function _createMsgs() {
         subject: "subject 4",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: "",
+        recivedAt: new Date().toISOString().substring(0, 10),
         isRead: false,
         isStarred: false,
         sent: false
@@ -148,7 +148,7 @@ function _createMsgs() {
         subject: "subject l",
         text: "ma nishma ? lama ? ha ha ha",
         styles: { fontFam: "arial", fontSize: "12", txtColor: "blue", bgColor: "white" },
-        recivedAt: "",
+        recivedAt: new Date().toISOString().substring(0, 10),
         isRead: false,
         isStarred: false,
         sent: true

@@ -5,12 +5,12 @@ export default {
   props: ['sentItems'],
   template: `
     <section class="sent-items">
-    <button  @click="isHidden = !isHidden" class="special-btn sent-list">Sent Items</button>
+    <button @click="isHidden = !isHidden" class="special-btn sent-list">Sent Items</button>
     
         <div v-if="!isHidden">
-        <button v-on:click="isHidden = !isHidden">back to inbox</button> 
+        <button class="backto" v-on:click="isHidden = !isHidden">back to inbox</button> 
         <section class="sent-div">
-           <table class="sent-table mail-list tbl clean-list">
+           <table class="sent-table mail-list clean-list">
               <section v-for="msgItem in sentItems">        
                  <mail-item @click.native="selectMsg(msgItem)" :msgItem="msgItem" :key="msgItem.id"></mail-item>          
               </section>    

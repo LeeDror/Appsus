@@ -6,8 +6,8 @@ import composeMail from "../cmps/compose-mail.cmp.js";
 import mailSearch from "../cmps/mail-search.cmp.js";
 import mailSort from "../cmps/mail-sort.cmp.js";
 import mailSentItems from "../cmps/mail-sent-items.cmp.js";
-
-
+//<section class="screen-inbox flex">
+//<section class="side-inbox flex-column space-around">
 export default {
     name: 'app',
     template: `
@@ -19,14 +19,16 @@ export default {
           <mail-search @search="setSearch"/>
         </section> 
         
-        <section class="screen-inbox flex">
-           <section class="side-inbox flex-column space-around">
+        <section class="screen-inbox">
+           <section class="side-inbox">
                <compose-mail @sent="loadMsgs"/>     
                <mail-sent-items @selected ="selectMsg" :sentItems="loadSentMsgs"></mail-sent-items>
+               <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>          
+               <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
            </section>
-           <section class="body-inbox">
-              <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>
-              <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow" v-if="loadSentMsgs"></mail-list> 
+           
+           <section class="body-inbox">  
+
            </section>
         </section>
         
