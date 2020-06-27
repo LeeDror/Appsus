@@ -1,0 +1,14 @@
+.user-msg {
+    position: absolute;
+    /* top: 50%;
+    right: 50%; */
+    background-color: black;
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+/* .user-msg div {
+    background-color: white;
+} */

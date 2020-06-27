@@ -1,0 +1,11 @@
+.review-add {
+  max-width: 20rem;
+  /* margin: 0 auto; */
+  border: 1px solid darkgreen;
+  padding: 1rem 2rem;
+  flex: 1;
+}
+
+.review-add > * {
+  margin-top: 0.3rem;
+}

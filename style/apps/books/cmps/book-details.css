@@ -1,0 +1,26 @@
+.book-details {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h2 span {
+  font-size: 15px;
+  color: darkgray;
+}
+
+.reviews {
+  flex: 1;
+  border: 1px solid darkgreen;
+  justify-content: space-between;
+  margin-left: 0.1rem;
+  text-align: left;
+  padding: 1rem;
+}
+
+.book-details >*{
+  margin: 0.5rem;
+}
+
+.book-details>button {
+  float: right;
+}

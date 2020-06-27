@@ -1,7 +1,6 @@
 
 import { myRouter } from './routes.js'
 
-// import appsusApp from './pages/appsus-app.cmp.js';
 import appHeader from './pages/app-header.cmp.js';
 import userMessage from "./cmps/user-message.cmp.js";
 

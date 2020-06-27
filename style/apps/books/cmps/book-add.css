@@ -1,0 +1,15 @@
+.book-add {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.book-add li {
+  text-align: left;
+  /* float: left; */
+}
+
+.book-add li button {
+    float: right;
+    border-radius: 50%;
+}
+

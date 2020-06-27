@@ -1,4 +1,5 @@
-import { keepService } from "../services/keep.service.js";
+
+import { eventBus } from "../../services/event-bus.service.js";
 
 export default {
   template: `
@@ -7,11 +8,13 @@ export default {
             <div class="new-note">    
                 <input type="text" v-if="noteType" placeholder="Title" v-model="content.title"> 
                 <input type="text" :placeholder="placeholder" v-model="content.text"> 
-                <i class="fas fa-font" @click="setType('noteText')"></i>&nbsp;
-                <i class="fas fa-image" @click="setType('noteImg')"></i>&nbsp;
-                <i class="fab fa-youtube" @click="setType('noteVideo')"></i>&nbsp;
-                <i class="fas fa-list-ul" @click="setType('noteTodos')"></i>
-                <button v-if="noteType" @click="saveNote">Close</button>
+                <div>
+                  <i class="fas fa-font" @click="setType('noteText')"></i>&nbsp;
+                  <i class="fas fa-image" @click="setType('noteImg')"></i>&nbsp;
+                  <i class="fab fa-youtube" @click="setType('noteVideo')"></i>&nbsp;
+                  <i class="fas fa-list-ul" @click="setType('noteTodos')"></i>
+                </div>
+                <button v-if="noteType" @click="saveNote">Add</button>
             </div> 
         </div> 
     </section>
@@ -43,12 +46,12 @@ export default {
       console.log(this.noteType, "this.noteType");
     },
     saveNote() {
-      keepService.addNote(this.noteType, this.content);
-      this.$emit("addedNote");
+      this.$emit("addedNote",this.noteType, this.content);
       this.content = { title: "", text: "" };
       this.showAdd = false;
       this.noteType = null;
       this.placeholder = "Take a note...";
+      eventBus.$emit("usr-msg", `Note added successfully`);
     },
   },
   created() {

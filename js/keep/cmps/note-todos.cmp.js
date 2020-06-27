@@ -13,9 +13,7 @@ export default {
     `,
     methods: {
       reportVal() {
-        console.log(this.note.info.todos);
         this.$emit('setVal', this.note)
-        
       },
     todoDone(todo) {
       if (todo.doneAt>0) todo.doneAt=null;

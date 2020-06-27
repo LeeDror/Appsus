@@ -31,6 +31,8 @@ function addNote(type, content) {
 
 
 function removeNote(deleteNote) {
+  console.log(deleteNote);
+  
   var idx = gNotes.findIndex((note) => note.id === deleteNote.id);
   gNotes.splice(idx, 1);
   utils.storeToStorage(NOTE_KEY, gNotes);
@@ -102,7 +104,7 @@ function createNotes() {
       isPinned: false,
       style: { backgroundColor: "#ffffff", color: "#000000" },
       info: {
-        url: "../img/keep/keep4.jpg",
+        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "Me playing Mi2222",
         text: "Fullstack Me Baby!",
       },
@@ -113,7 +115,7 @@ function createNotes() {
       isPinned: true,
       style: { backgroundColor: "#ffffff", color: "#000000" },
       info: {
-        url: "../img/keep/keep3.jpg",
+        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "LALALALA",
         text: "Fullstack Me Baby!",
       },
@@ -124,7 +126,7 @@ function createNotes() {
       isPinned: false,
       style: { backgroundColor: "#ffffff", color: "#000000" },
       info: {
-        url: "../img/keep/keep3.jpg",
+        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "LALALALA",
         text: "Fullstack Me Baby!",
       },
@@ -135,7 +137,7 @@ function createNotes() {
       isPinned: true,
       style: { backgroundColor: "#ffffff", color: "#000000" },
       info: {
-        url: "../img/keep/keep3.jpg",
+        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "LALALALA",
         text: "Fullstack Me Baby!",
       },
