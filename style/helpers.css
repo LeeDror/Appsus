@@ -212,7 +212,8 @@ left: 18%;
         font-size: 0.9em;
     }
     .mail-app{
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: poppins;
+        /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     }
     .screen-inbox{
         
