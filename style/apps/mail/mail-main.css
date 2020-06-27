@@ -25,3 +25,15 @@
         0 1px 3px 1px rgba(60,64,67,.15);
         z-index: 1;
      }
+
+     @media (max-width: 345px) {
+
+      .nav-inbox{
+        display: flex;
+        flex-direction: row;
+        /* max-width: 85%; */
+        margin-left: 8%;
+        margin-top: 20px;
+        /* border: solid 0.5px rgb(151, 93, 151); */
+    }
+  }

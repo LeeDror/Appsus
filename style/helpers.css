@@ -268,8 +268,10 @@ td{
 }
 .mail-reply{
     background-color: rgb(233, 231, 106);
+    height: 100px;
     /* border-top: thin purple; */
 }
+
 .btnrply{
     background-color: Transparent;
     background-repeat:no-repeat;
