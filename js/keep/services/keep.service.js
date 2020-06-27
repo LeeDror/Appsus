@@ -5,7 +5,7 @@ export const keepService = {
   getNotes,
   getNoteById,
   addNote,
-  getNewNote,
+  // getNewNote,
   saveEditNote,
   removeNote
 };
@@ -17,7 +17,7 @@ function addNote(type, content) {
     id: utils.getRandomId(),
     type: type,
     isPinned: false,
-    style: { backgroundColor: "#ffffff", color: "#000000" },
+    style: { backgroundColor: "#ffffff"},
     info: {
       title: content.title,
       url: content.text,
@@ -39,19 +39,19 @@ function removeNote(deleteNote) {
   return Promise.resolve(gNotes);
 }
 
-function getNewNote() {
-  const note = {
-    id: utils.getRandomId(),
-    type: "noteText",
-    isPinned: false,
-    style: { backgroundColor: "#ffffff", color: "#000000" },
-    info: {
-      title: "",
-      text: "",
-    },
-  };
-  return Promise.resolve(note);
-}
+// function getNewNote() {
+//   const note = {
+//     id: utils.getRandomId(),
+//     type: "noteText",
+//     isPinned: false,
+//     style: { backgroundColor: "#ffffff"},
+//     info: {
+//       title: "",
+//       text: "",
+//     },
+//   };
+//   return Promise.resolve(note);
+// }
 
 function saveEditNote(editNote) {
   var idx = gNotes.findIndex((note) => note.id === editNote.id);
@@ -78,7 +78,7 @@ function createNotes() {
       id: "1",
       type: "noteText",
       isPinned: false,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff" },
       info: {
         title: "Me playing Mi11111",
         text: "Fullstack Me Baby!",
@@ -88,7 +88,7 @@ function createNotes() {
       id: "2",
       type: "noteTodos",
       isPinned: true,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff" },
       info: {
         title: "How was it:",
         todos: [
@@ -102,9 +102,9 @@ function createNotes() {
       id: "3",
       type: "noteImg",
       isPinned: false,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff" },
       info: {
-        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRsD3nMvxf2A0lV-cjsrPFBvL1ax_suHrYFpg&usqp=CAU",
         title: "Me playing Mi2222",
         text: "Fullstack Me Baby!",
       },
@@ -113,7 +113,7 @@ function createNotes() {
       id: "4",
       type: "noteImg",
       isPinned: true,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff"},
       info: {
         url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "LALALALA",
@@ -124,7 +124,7 @@ function createNotes() {
       id: "5",
       type: "noteImg",
       isPinned: false,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff"},
       info: {
         url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
         title: "LALALALA",
@@ -133,11 +133,11 @@ function createNotes() {
     },
     {
       id: "6",
-      type: "noteImg",
+      type: "noteVideo",
       isPinned: true,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff"},
       info: {
-        url: "https://www.ginosar.co.il//octopus/upload/images/resorts/slider-img.jpg",
+        url: "https://www.youtube.com/embed/G9m54DdWgoo",
         title: "LALALALA",
         text: "Fullstack Me Baby!",
       },
@@ -146,7 +146,7 @@ function createNotes() {
       id: "7",
       type: "noteTodos",
       isPinned: true,
-      style: { backgroundColor: "#ffffff", color: "#000000" },
+      style: { backgroundColor: "#ffffff"},
       info: {
         title: "How was it:",
         todos: [

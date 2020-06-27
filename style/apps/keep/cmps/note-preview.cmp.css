@@ -1,9 +1,14 @@
 .note-preview {
   border: 1px solid black;
   padding: 1rem;
+  transition: box-shadow 1s;
 }
 
 .note-preview img {
+  width: 100%;
+}
+
+.note-preview iframe {
   width: 100%;
 }
 
@@ -12,6 +17,5 @@
 }
 
 .note-preview:hover {
-  /* box-shadow: 5px 10px #888888; */
   box-shadow: 0 0 15px black;
 }
