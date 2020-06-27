@@ -8,7 +8,7 @@ export default {
         <ul class="clean-list">
             <li>Explore our book app..</li>
             <li>Manage your mail box..</li>
-            <li>Save images, videos, list or a simle text..</li>
+            <li>Save images, videos, list or a simple text..</li>
         </ul>
     </section>      
     `
