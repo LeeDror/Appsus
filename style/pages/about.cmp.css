@@ -1,0 +1,55 @@
+.team-member {
+    padding: 0 2rem;
+}
+
+.team-member img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding-top: 5px;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    text-transform: none;
+}
+
+.tm-dit p {
+    margin: 0;
+    margin-bottom: .5rem;
+}
+
+.tm-desc p {
+    margin-top: 0;
+    margin-left: 2rem;
+    font-size: .9rem;
+}
+
+.social-buttons {
+    margin-bottom: 0;
+}
+
+.social-buttons a {
+    font-size: 15px;
+    line-height: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    color: white;
+    border-radius: 100%;
+    outline: none;
+    background-color: #222222;
+}
+
+/* .tm-dit {
+    max-width: 40%;
+} */
+.tm-desc {
+    max-width: 50%;
+    margin-left: 1rem;
+}

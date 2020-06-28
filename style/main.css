@@ -21,6 +21,12 @@
   .main-home-page {
     flex-direction: column;
   }
+  .team-member {
+    flex-direction: column;
+  }
+  .tm-desc {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 400px) {
