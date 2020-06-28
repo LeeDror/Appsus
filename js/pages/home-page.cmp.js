@@ -2,7 +2,7 @@
 
 export default {
     template: `
-    <section class="home-page flex">
+    <section class="main-home-page flex">
         <div class="home-img">
         <img src="../../img/appsus/back3.png" />
         </div>

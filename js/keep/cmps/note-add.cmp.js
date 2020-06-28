@@ -6,8 +6,8 @@ export default {
     <section>
         <div class="keep-content">
             <div class="new-note flex">    
-                <input type="text" v-if="noteType" placeholder="Title" v-model="content.title"> 
-                <input type="text" :placeholder="placeholder" v-model="content.text"> 
+                <input type="text" v-if="noteType" placeholder="Title" v-model="content.title" ref="title"> 
+                <input type="text" :placeholder="placeholder" v-model="content.text" ref="content"> 
                 <div>
                   <i class="fas fa-font" @click="setType('noteText')"></i>&nbsp;
                   <i class="fas fa-image" @click="setType('noteImg')"></i>&nbsp;
@@ -56,5 +56,10 @@ export default {
   created() {
     this.noteType = null;
     this.content= { title: "", text: "" }
+    // this.$refs.content.focus();
   },
+  mounted() {
+    console.log('this.$refs', this.$refs);
+    if (this.noteType) this.$refs.title.focus();
+}
 };

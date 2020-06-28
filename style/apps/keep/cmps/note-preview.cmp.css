@@ -1,6 +1,6 @@
 .note-preview {
-  border: 1px solid rgb(121, 119, 119);
-  padding: 1rem;
+  border: 2px solid rgb(121, 119, 119);
+  padding: 1.5rem;
   border-radius: 5px;
   transition: box-shadow .7s, border-color .7s;
   cursor: pointer;
@@ -16,9 +16,14 @@
 
 .note-title {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .note-preview:hover {
   box-shadow: 0 0 15px black;
   border-color: black;
+}
+
+.note-preview  input[type=text] {
+  width: 100%;
 }

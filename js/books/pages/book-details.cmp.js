@@ -42,10 +42,13 @@ export default {
     loadBook() {
       const {bookId} = this.$route.params;
       bookService.getBookById(bookId)
-        .then(book => this.book = book)
+        .then(book => {
+          console.log(book);
+           this.book = book
+           console.log(this.book );
+          })
       const reviews = utils.loadFromStorage('reviews')
-      this.reviews = reviews.filter(review => review.bookId === bookId)
-      
+      if (reviews) this.reviews = reviews.filter(review => review.bookId === bookId)
       bookService.getNextBookId(bookId)
         .then(bookId => this.nextBookId = bookId)
       bookService.getPrevBookId(bookId)
@@ -61,7 +64,6 @@ export default {
       if (this.book.pageCount > 500) str = 'Long Reading';
       else if (this.book.pageCount > 200) str = 'Decent Reading';
       else if (this.book.pageCount < 100) str = 'Light Reading';
-
       return this.book.pageCount + '-' + str;
     },
     showBookAge() {

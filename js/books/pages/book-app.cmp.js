@@ -7,7 +7,7 @@ import { bookService } from "../services/book.service.js";
 
 export default {
   template: `
-    <main class='app-main'>
+    <main class='book-main'>
         <book-filter v-show="!selectedBook" @filtered="setFilter"></book-filter>
         <book-list :books="booksToShow" v-if="!selectedBook" @selected="selectBook"></book-list>
         <user-msg v-if="showMsg"/>
