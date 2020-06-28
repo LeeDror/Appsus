@@ -1,8 +1,18 @@
 import { mailService } from "../services/mail.service.js";
 
+//<i  v-on:click.stop="toggleIsRead" ></i>
+//<input type="checkbox" :checked ='msgItem.isRead' v-on:click.stop="toggleIsRead" v-bind:class="{fa fa-envelope:!msgItem.isRead}" /> 
+
+
+
+
 //<input type="checkbox" v-model="msgItem.isRead"  @click.prevernt='click':checked='msgItem.isRead'/>
 // import mailContent from './mail-content.cmp.js';
 // submit.prevent="onSubmit"
+
+//<h4 v-if="shouldShowScore" v-bind:class="scoreClass"></h4>
+
+//class="[faClass(tab.icon)]"
 
 export default {
   name:'item',
@@ -11,7 +21,10 @@ export default {
   <section class = "mail-item row" >
   
           <tr class="mail-item row" v-bind:class="{unread:!msgItem.isRead}">
-          <input type="checkbox" :checked ='msgItem.isRead' v-on:click.stop="toggleIsRead" /> 
+          <span v-if="msgItem.isRead"><i  class="fa fa-envelope-open"></i></span>
+          <span v-else><i  class="fa fa-envelope"></i></span>
+          <i :class="[faClass()]"  v-on:click.stop="toggleIsRead" aria-hidden="true"></i>
+            
             <td>{{msgItem.from}}</td>
             <td>{{msgItem.subject}}</td>
             <td>{{msgItem.recivedAt}}</td>
@@ -29,7 +42,15 @@ export default {
 
     toggleIsRead(){
       this.msgItem.isRead =!this.msgItem.isRead
-    }
+
+    }, 
+      faClass() {
+        // return (isRead)? `fa fa-envelope-open` :`fa fa-envelope`
+
+        `fa fa-envelope`
+        
+       }
+     
 
   },
   components: {
