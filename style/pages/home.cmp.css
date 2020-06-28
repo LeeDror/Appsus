@@ -1,0 +1,10 @@
+.home-page {
+     /* background-image: url('../../img/appsus/back3.png');  */
+}
+
+.home-page img {
+    height: 80vh;
+}
+.home-page>* {
+    flex: 0 0 50%;
+}

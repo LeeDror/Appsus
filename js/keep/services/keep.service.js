@@ -18,7 +18,7 @@ function addNote(type, content) {
     style: { backgroundColor: "#ffffff"},
     info: {
       title: content.title,
-      url: content.text,
+      url: content.text.replace("watch?v=","embed/"),
       text: content.text,
       todos: content.text.split(",").map(function(todo) { return {text: todo, doneAt: null}})
     },
