@@ -7,7 +7,7 @@ export default {
         <section class="keep-app">
             <input class="note-search" type="text" placeholder="Search in title" v-model="filter">
             <note-add @addedNote="renderNotes"></note-add>
-            <note-list :notes="notesToShow" @remove="removeNote" @edit="saveEditNote" @send=""></note-list>
+            <note-list v-if="notes" :notes="notesToShow" @remove="removeNote" @edit="saveEditNote" @send=""></note-list>
         </section>
     `,
   data() {
@@ -20,7 +20,6 @@ export default {
   created() {
     keepService.getNotes().then((notes) => {
       this.notes = notes
-      return this.notesToShow;
     });
   },
   computed: {

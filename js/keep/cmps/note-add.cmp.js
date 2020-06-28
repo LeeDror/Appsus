@@ -56,10 +56,8 @@ export default {
   created() {
     this.noteType = null;
     this.content= { title: "", text: "" }
-    // this.$refs.content.focus();
   },
   mounted() {
-    console.log('this.$refs', this.$refs);
     if (this.noteType) this.$refs.title.focus();
 }
 };
