@@ -28,12 +28,8 @@ const myRoutes = [
     },
     {
         path: '/book/',
-        component: bookHome,
+        component: bookApp,
         children: [   
-            {
-                path: 'list',
-                component: bookApp
-            },       
             {
                 path: 'details/:bookId',
                 component: bookDetails

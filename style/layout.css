@@ -3,6 +3,7 @@
     background-color: rgba(146, 29, 101, 0.753);
     padding-bottom: 1rem;
     padding: 0 2rem;
+    border-bottom: 1px solid black;
 }
 
 main {
@@ -15,6 +16,7 @@ main {
     min-height: 10vh;
     background-color: rgba(146, 29, 101, 0.753);
     padding: 1rem;
+    border-top: 1px solid black;
 }
 
 .app-nav {
