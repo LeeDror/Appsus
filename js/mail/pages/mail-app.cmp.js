@@ -1,3 +1,4 @@
+//<div v-if="!isHidden" class="new-mail">
 
 import { mailService } from "../services/mail.service.js";
 import mailList from "../cmps/mail-list.cmp.js";
@@ -21,7 +22,9 @@ export default {
         
         <section class="screen-inbox">
            <section class="side-inbox">
-               <compose-mail @sent="loadMsgs"/>     
+               <button class="special-btn compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
+        
+               <compose-mail  v-if="!isHidden" class="new-mail" @sent="loadMsgs" @close="isHidden = !isHidden"/>     
                <mail-sent-items @selected ="selectMsg" :sentItems="loadSentMsgs"></mail-sent-items>
                <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>          
                <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
@@ -41,8 +44,10 @@ export default {
             selectedMsg: null,
             searchBy: null,
             sortBy: null,
-            sentMsgs: null
-        };
+            sentMsgs: null,
+            isHidden:true
+        }
+        
     },
     computed: {
         getReadCount() {

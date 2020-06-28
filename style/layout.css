@@ -33,4 +33,16 @@ main {
     border-radius: 5px;
   }
   
+.new-mail {
+    position: fixed;
+    background-color: rgba(255, 255, 255);
+    bottom: 0;
+    right: 0;
+    margin-right: 1rem;
+    z-index: 1;
+}
+
+.new-mail input {
+    border: none;
+}
   
