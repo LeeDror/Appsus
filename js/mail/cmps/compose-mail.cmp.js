@@ -5,9 +5,9 @@ import {eventBus} from "../../services/event-bus.service.js";
 export default {
     name:'compose',
     template: `
-    <section class="compose-mail">
-    <button class="special-btn compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
-     <div v-if="!isHidden">
+    <section class="compose-mail1">
+    
+     
        <button @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  
             <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
