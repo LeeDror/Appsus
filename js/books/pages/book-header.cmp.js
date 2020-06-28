@@ -5,11 +5,10 @@ export default {
   template: `
         <header class="book-header">
             <nav> 
-                <router-link to="/book">Book App</router-link> |
+                <router-link to="/book/list">Book App</router-link> |
                 <router-link to="/book/add">Add Book</router-link>
             </nav>
             <hr>
-            <book-app/>
             <router-view /> 
         </header>
     `,

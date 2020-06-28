@@ -29,7 +29,11 @@ const myRoutes = [
     {
         path: '/book/',
         component: bookHome,
-        children: [          
+        children: [   
+            {
+                path: 'list',
+                component: bookApp
+            },       
             {
                 path: 'details/:bookId',
                 component: bookDetails
