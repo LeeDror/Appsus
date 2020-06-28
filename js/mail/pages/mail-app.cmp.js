@@ -20,20 +20,18 @@ export default {
           <mail-search @search="setSearch"/>
         </section> 
         
-        <section class="screen-inbox">
-           <section class="side-inbox">
-               <button class="special-btn compose" v-on:click="isHidden = !isHidden">Compose Mail</button>
-        
-               <compose-mail  v-if="!isHidden" class="new-mail" @sent="loadMsgs" @close="isHidden = !isHidden"/>     
-               <mail-sent-items @selected ="selectMsg" :sentItems="loadSentMsgs"></mail-sent-items>
-               <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>          
-               <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
-           </section>
-           
-           <section class="body-inbox">  
+    <section class="screen-inbox">
 
-           </section>
-        </section>
+          <section class="side-inbox">
+             <button class="special-btn compose" v-on:click="isHidden = !isHidden">Compose Mail</button>                     
+             <compose-mail  v-if="!isHidden" class="new-mail" @sent="loadMsgs" @close="isHidden = !isHidden"/>  
+             <mail-sent-items @selected ="selectMsg" :sentItems="loadSentMsgs"></mail-sent-items>
+            <mail-content @close="toggleIsRead" v-if="selectedMsg" :msgItem="selectedMsg"/>          
+            <mail-list @selected="selectMsg" v-else v-bind:msgItems="msgsToShow"></mail-list> 
+       </section>
+
+    </section>
+        
         
 
         </main> 

@@ -1,13 +1,16 @@
 import { mailService } from "../services/mail.service.js";
 
+//<button class="btnrply" v-on:click="isHidden = !isHidden">reply</button>
+//<div v-if="!isHidden"></div>
+ // </div>
 
-export default {   
+  export default {   
     name:'reply',
     props: ['msg'],
     template: `
-    <section class="mail-reply flex-row align-center">
-    <button class="btnrply" v-on:click="isHidden = !isHidden">reply</button>
-     <div v-if="!isHidden">
+    <section class="mail-reply">
+ 
+     
      <button @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  
             <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
@@ -18,7 +21,7 @@ export default {
             <button>Send!</button>
         </form>
         
-      </div>
+    
     </section>
     `,
     data() {

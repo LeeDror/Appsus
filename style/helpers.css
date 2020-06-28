@@ -30,7 +30,7 @@
 /* header {
     grid-area: header;
 	/* background-color: #d822f0; */
-}
+
 main {
     grid-area: main;
 	background-color: #9896f1;
@@ -123,11 +123,11 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 
 .tbl{
-    top: 205px;
+    top: 225px;
     position: fixed;
 background-color:lightgrey;
 width: 60%;
-height: 300px;
+height: 54vh;
 text-align: center;
 /* margin-left: 3%; */
 border-collapse: collapse;
@@ -159,11 +159,14 @@ left: 18%;
 .content{
 
     width: 500px;
-    height: 300px;
+    height: 400px;
     /* top:5%; */
-    margin-left: 220%;
+    margin-left: 120%;
+    
     background-color: rgb(173, 198, 202);
-    border: solid black;
+    /* border: solid black; */
+    border-radius: 10px;
+    box-shadow: 5px 10px 18px #888888;
 
       }
 
@@ -219,27 +222,31 @@ left: 18%;
         font-family: poppins;
         /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     }
-    .screen-inbox{
+    /* .screen-inbox{
         
         margin-top:30px;
         margin-left: 10%
-    }
+    } */
     .side-inbox{
-        height: 170px;
+        /* height: 55vh; */
         width: 100px;
+        margin-left:9%;
+        margin-top: 3.2%;
         /* border: solid rosybrown  */
         background-color: rgba(182, 155, 155, 0.466);
+        box-shadow: 5px 10px 18px #888888;
+        border-radius: 10px;
     }
-.sent-div{
+ .sent-div{
     width: 100%;
      margin-left: 100px;
-    /* margin-top:100px; */
-    z-index: 1; 
+    margin-top:100px;
+     z-index: 1;  
 
-    
-}
+     
+ } 
 .sent-table{
-    top: 205px;
+    top: 225px;
     height: 400px;
     /* margin-left: 1000px; */
     /* z-index: 1; */
@@ -272,8 +279,9 @@ td{
     font-weight: bold;
 }
 .mail-reply{
-    background-color: rgb(233, 231, 106);
-    height: 100px;
+    /* background-color: rgb(233, 231, 106); */
+    height: 200px;
+  
     /* border-top: thin purple; */
 }
 
@@ -290,28 +298,31 @@ td{
     font-weight: bolder;
 }
 
+.trans{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    font-weight: bold; 
+    width: 50px;
+    height: 50px;
+    font-weight: bolder;
+
+}
+
 .newmsg{
 height: 700px;
     /* width: 500px; */
 }
 
-/*.chkIsRead { display:none; } to hide the checkbox */
 .chkIsRead {
   font-family: FontAwesome;
   display: inline-block;
 }
 
-/* <i class="fa fa-envelope-open" aria-hidden="true"></i> */
-/* <i class="fa fa-envelope-open" aria-hidden="true"></i> */
 
-
-
-
-/* input[type=checkbox] + label:before { content: "\f096"; } unchecked icon */
-/* input[type=checkbox] + label:before { letter-spacing: 10px; } space between checkbox and label */
-
-/* input[type=checkbox]:checked + label:before { content: "\f046"; } checked icon */
-/* input[type=checkbox]:checked + label:before { letter-spacing: 5px; } allow space for check mark */
 
 
 

@@ -21,10 +21,10 @@ export default {
   <section class = "mail-item row" >
   
           <tr class="mail-item row" v-bind:class="{unread:!msgItem.isRead}">
-          <span v-if="msgItem.isRead"><i  class="fa fa-envelope-open"></i></span>
-          <span v-else><i  class="fa fa-envelope"></i></span>
-          <i :class="[faClass()]"  v-on:click.stop="toggleIsRead" aria-hidden="true"></i>
-            
+          <span v-if="msgItem.isRead"><i class="fa fa-envelope-open" @click.stop="toggleIsRead">&nbsp&nbsp&nbsp</i></span>
+          <span v-else><i  class="fa fa-envelope" @click.stop="toggleIsRead">&nbsp&nbsp&nbsp</i></span>
+          
+         
             <td>{{msgItem.from}}</td>
             <td>{{msgItem.subject}}</td>
             <td>{{msgItem.recivedAt}}</td>

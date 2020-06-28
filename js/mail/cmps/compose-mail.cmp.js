@@ -8,7 +8,7 @@ export default {
     <section class="compose-mail1">
     
      
-       <button @click="close">X</button>
+       <button class= "trans" @click="close">X</button>
         <form class="newmsg" @submit.prevent="sendMail">  
             <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
             <input type="text" ref="textInput" placeholder="from:" v-model="msgToEdit.from"/>        
