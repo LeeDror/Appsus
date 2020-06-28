@@ -1,0 +1,11 @@
+.main-home-page {
+     /* background-image: url('../../img/appsus/back3.png');  */
+}
+
+.main-home-page >* {
+    width: 50%;
+}
+
+.main-home-page img {
+    width: 100%;
+}

@@ -27,11 +27,11 @@ const myRoutes = [
         component: mailApp
     },
     {
-        path: '/book/:who?',
+        path: '/book/',
         component: bookHome,
         children: [          
             {
-                path: ':bookId',
+                path: 'details/:bookId',
                 component: bookDetails
             },
             {

@@ -27,14 +27,14 @@
 }
 
 
-header {
+/* header {
     grid-area: header;
 	/* background-color: #d822f0; */
 }
 main {
     grid-area: main;
 	background-color: #9896f1;
-}
+} */
 .repeat{
 grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }

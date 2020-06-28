@@ -1,4 +1,5 @@
 import bookApp from './book-app.cmp.js';
+import bookAdd from './book-add.cmp.js';
 
 export default {
   template: `
@@ -13,6 +14,7 @@ export default {
         </header>
     `,
     components: {
-        bookApp
+        bookApp,
+        bookAdd
       }
 };

@@ -10,10 +10,11 @@ export default {
     return {
       colors: [
         { backgroundColor: "#84a2da" },
-        { backgroundColor: "#84a2da" },
-        { backgroundColor: "#465164" },
+        { backgroundColor: "#5fd3c3" },
         { backgroundColor: "#66339991" },
-        { backgroundColor: "#66339991" },
+        { backgroundColor: "#da8678" },
+        { backgroundColor: "#d959ae" },
+        { backgroundColor: "#f8e32db8" },        
       ],
     };
   },
