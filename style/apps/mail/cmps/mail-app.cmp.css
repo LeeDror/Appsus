@@ -1,0 +1,18 @@
+
+
+
+
+/* screen-inbox */
+.side-inbox {
+    min-width: 30%;
+}
+.mail-list {
+    min-width: 70%;
+}
+
+
+.mail-search input {
+    width: 80px;
+    font-size: 0.6rem;
+    padding: 0.2rem;
+}

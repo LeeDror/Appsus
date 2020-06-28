@@ -1,6 +1,7 @@
 export default {
     template: `
         <section class="mail-search">
+            <i class="fas fa-search"></i>
             <input type="text" placeholder="Search on subjects" v-model="searchBy.bySubject" @input="search"/>
             <input type="text" placeholder="Search on text" v-model="searchBy.byTxt" @input="search"/>
             <input type="text" placeholder="Search on from" v-model="searchBy.byFrom" @input="search"/>

@@ -11,13 +11,15 @@ import { mailService } from "../services/mail.service.js";
     <section class="mail-reply">
  
      
-     <button @click="close">X</button>
-        <form class="newmsg" @submit.prevent="sendMail">  
-            <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
-            <input type="text" ref="textInput" placeholder="from:" v-model="msgToEdit.from"/>        
-            <input type="text" placeholder="cc:" v-model="msgToEdit.cc"/>
-            <input type="text" placeholder="subject:" v-model="msgToEdit.subject"/>
-            <textarea v-model="msgToEdit.freeText" placeholder="your message here..."></textarea>
+        <button @click="close">X</button>
+        <form class="newmsg" @submit.prevent="sendMail"> 
+            <div class="reply flex-column">
+                <input type="text" ref="textInput" placeholder="to:" v-model="msgToEdit.to"/>   
+                <input type="text" ref="textInput" placeholder="from:" v-model="msgToEdit.from"/>        
+                <input type="text" placeholder="cc:" v-model="msgToEdit.cc"/>
+                <input type="text" placeholder="subject:" v-model="msgToEdit.subject"/>
+                <textarea v-model="msgToEdit.freeText" placeholder="your message here..."></textarea>
+            </div> 
             <button>Send!</button>
         </form>
         
