@@ -3,9 +3,7 @@ const NOTE_KEY = "notes";
 
 export const keepService = {
   getNotes,
-  getNoteById,
   addNote,
-  // getNewNote,
   saveEditNote,
   removeNote
 };
@@ -29,40 +27,18 @@ function addNote(type, content) {
   utils.storeToStorage(NOTE_KEY, gNotes);
 }
 
-
 function removeNote(deleteNote) {
-  console.log(deleteNote);
-  
   var idx = gNotes.findIndex((note) => note.id === deleteNote.id);
   gNotes.splice(idx, 1);
   utils.storeToStorage(NOTE_KEY, gNotes);
   return Promise.resolve(gNotes);
 }
 
-// function getNewNote() {
-//   const note = {
-//     id: utils.getRandomId(),
-//     type: "noteText",
-//     isPinned: false,
-//     style: { backgroundColor: "#ffffff"},
-//     info: {
-//       title: "",
-//       text: "",
-//     },
-//   };
-//   return Promise.resolve(note);
-// }
-
 function saveEditNote(editNote) {
   var idx = gNotes.findIndex((note) => note.id === editNote.id);
   gNotes.splice(idx, 1, editNote);
   utils.storeToStorage(NOTE_KEY, gNotes);
   return Promise.resolve(gNotes);
-}
-
-function getNoteById(noteId) {
-  const note = gNotes.find((note) => note.id === noteId);
-  return Promise.resolve(note);
 }
 
 function getNotes() {

@@ -2,7 +2,7 @@ export default {
   props: ["note"],
   template: `
           <section class="colors flex">
-            <div class="color" v-for="color in colors" :style="color" @click="reportVal(color)">
+            <div class="color" v-for="color in colors" :style="color" @click="setColor(color)">
             </div>
           </section>
       `,
@@ -18,13 +18,9 @@ export default {
     };
   },
   methods: {
-    reportVal(color) {
+    setColor(color) {
       this.note.style.backgroundColor = color.backgroundColor;
       this.$emit("setVal", this.note);
-    },
-
-    setColor(color) {
-      this.note.style.backgroundColor = color;
-    },
+    }
   },
 };

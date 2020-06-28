@@ -16,7 +16,8 @@ new Vue({
             </main>
             <footer class="app-footer">
               <h4 class="logo">Appsus</h4>
-                coffeerights 2020
+              <div>&copy; coffeerights 2020 </div>
+              <div>Ofra Bargad & Lee Dror</div>                
             </footer>
         </div>
     `,

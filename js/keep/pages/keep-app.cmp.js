@@ -19,7 +19,8 @@ export default {
   },
   created() {
     keepService.getNotes().then((notes) => {
-      return (this.notes = notes);
+      this.notes = notes
+      return this.notesToShow;
     });
   },
   computed: {
